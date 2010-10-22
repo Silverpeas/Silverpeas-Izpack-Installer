@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<processing>
+  <job name="Silverpeas Settings">
+    <os family="windows" />
+    <executefile name="$INSTALL_PATH/bin/SilverpeasSettings.bat" />
+  </job>
+  <job name="Silverpeas Settings">
+    <os family="unix" />
+    <os family="mac" />
+    <executefile name="$INSTALL_PATH/bin/SilverpeasSettings.sh" />
+  </job>
+</processing>

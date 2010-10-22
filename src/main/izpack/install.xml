@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<installation version="1.0">
+  <!--
+    Ant properties in this file can be referenced with @{}, otherwise use
+    variables below in installer files with ${}
+  -->
+  <info>
+    <appname>Silverpeas</appname>
+    <appversion>5.4-SNAPSHOT</appversion>
+    <url>http://www.silverpeas.org/</url>
+    <authors>
+      <author name="Emmanuel Hugonnet" email="emmanuel.hugonnet@silverpeas.com"/>
+      <author name="Nicolas Eysseric" email="nicolas.eysseric@silverpeas.com"/>
+    </authors>
+    <javaversion>1.6</javaversion>
+  </info>
+
+  <guiprefs width="800" height="600" resizable="yes">
+    <modifier key="useHeadingPanel" value="yes" />
+    <modifier key="useHeadingForSummary" value="yes" />
+    <modifier key="headingImageOnLeft" value="yes" />
+    <modifier key="headingLineCount" value="2" />
+    <modifier key="headingFontSize" value="1.5" />
+    <modifier key="headingBackgroundColor" value="0x00ffffff" />
+    <modifier key="headingPanelCounter" value="text" />
+    <modifier key="headingPanelCounterPos" value="inHeading" />
+  </guiprefs>
+
+  <locale>
+    <langpack iso3="fra" />
+  </locale>
+
+  <resources>
+    <res id="Installer.image" src="logo.png" />
+    <res id="Heading.image" src="logo.png" />
+    <res id="HTMLInfoPanel.info" src="html/readme.html" parse="no"/>
+    <res id="LicencePanel.licence" src="license.txt"/>
+    <res id="ProcessPanel.Spec.xml" src="postprocess.xml" />
+  </resources>
+
+  <panels>
+    <panel classname="HelloPanel" />
+    <panel classname="HTMLInfoPanel" id="info" />
+    <panel classname="LicencePanel" id="licence" />
+    <panel classname="TargetPanel" id="dir.windows" ShowCreateDirectoryMessage="false" />
+    <panel classname="PacksPanel" />
+    <panel classname="SummaryPanel" />
+    <panel classname="InstallPanel" />
+    <panel classname="ProcessPanel" />
+    <panel classname="SimpleFinishPanel" />
+  </panels>
+
+  <packs>
+    <pack name="Silverpeas" required="yes">
+      <description>Install $APP_NAME $APP_VER</description>
+      <fileset dir="package/silverpeas-5.4-SNAPSHOT" targetdir="$INSTALL_PATH">    
+        <include name="bin/**" />
+        <include name="data/**"/>
+        <include name="dbRepository/**"/>
+        <include name="initialize/**"/>
+        <include name="jar/**"/>   
+        <include name="log"/>         
+        <include name="properties/**"/>    
+        <include name="setup/**"/> 
+        <include name="resources/**"/>
+        <include name="silvertrace/**"/>
+        <include name="xmlcomponents/**"/>
+        <exclude name="**/*.sh" />
+        <exclude name="**/*.bat" />
+        <exclude name="**/*.cmd" />
+      </fileset>
+    </pack>
+    <pack name="H2" required="yes">
+      <description>Install H2 Database</description>      
+      <fileset dir="package" targetdir="$INSTALL_PATH">
+        <include name="h2/**"/>
+      </fileset>
+    </pack>
+    <pack name="JBoss" required="yes">
+      <description>Install JBoss Application Server</description>      
+      <file src="jboss403.zip" targetdir="$INSTALL_PATH" unpack="true" />
+    </pack>
+    <pack name="Silverpeas Configuration Windows" required="yes" >
+      <description>Prepare $APP_NAME $APP_VER</description>
+      <os family="windows" />    
+      <fileset dir="package/silverpeas-5.4-SNAPSHOT" targetdir="$INSTALL_PATH">
+        <include name="bin/*.bat"/>
+        <include name="bin/*.cmd"/>
+        <exclude name="**/*.sh" />
+      </fileset>
+      <fileset dir="package/settings/windows" targetdir="$INSTALL_PATH/setup/settings" override="true">
+        <include name="*.xml"/>
+      </fileset>
+      <parsable targetfile="$INSTALL_PATH/bin/SilverpeasSettings.bat" type="plain" encoding="UTF-8"  />
+      <parsable targetfile="$INSTALL_PATH/bin/silverpeas_start_jboss.cmd" type="plain" encoding="UTF-8" />
+      <parsable targetfile="$INSTALL_PATH/bin/start_db.bat" type="plain" encoding="UTF-8"/>
+      <parsable targetfile="$INSTALL_PATH/bin/stop_db.bat" type="plain" encoding="UTF-8" />
+    </pack>
+    <pack name="Silverpeas Configuration Unix" required="yes">
+      <description>Prepare $APP_NAME $APP_VER</description>
+      <os family="unix" />
+      <os family="mac" />
+      <fileset dir="package/silverpeas-5.4-SNAPSHOT" targetdir="$INSTALL_PATH">
+        <include name="bin/*.sh"/>
+        <exclude name="**/*.bat" />
+        <exclude name="**/*.cmd" />
+      </fileset>
+      <fileset dir="package/settings/unix" targetdir="$INSTALL_PATH/setup/settings" override="true">
+        <include name="*.xml"/>
+      </fileset>      
+      <parsable targetfile="$INSTALL_PATH/bin/SilverpeasSettings.sh" type="plain" encoding="UTF-8" />
+      <parsable targetfile="$INSTALL_PATH/bin/silverpeas_start_jboss.sh" type="plain" encoding="UTF-8" />
+       <parsable targetfile="$INSTALL_PATH/bin/silverpeas_stop_jboss.sh" type="plain" encoding="UTF-8" />
+      <parsable targetfile="$INSTALL_PATH/bin/start_db.sh" type="plain" encoding="UTF-8" />
+      <parsable targetfile="$INSTALL_PATH/bin/stop_db.sh" type="plain" encoding="UTF-8"/>
+      
+      <executable targetfile="$INSTALL_PATH/bin/stop_db.sh" stage="never"/>
+      <executable targetfile="$INSTALL_PATH/bin/start_db.sh" stage="never"/>
+      <executable targetfile="$INSTALL_PATH/bin/silverpeas_start_jboss.sh" stage="never"/>
+      <executable targetfile="$INSTALL_PATH/bin/silverpeas_stop_jboss.sh" stage="never"/>
+      <executable targetfile="$INSTALL_PATH/bin/SilverpeasSettings.sh" stage="never"/>
+      <executable targetfile="$INSTALL_PATH/jboss403/bin/run.sh" stage="never"/>      
+    </pack>
+  </packs>
+</installation>
