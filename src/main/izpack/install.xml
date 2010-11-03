@@ -16,6 +16,17 @@
   </info>
 
   <guiprefs width="800" height="600" resizable="yes">
+    <!--<splash>logo.png</splash>-->
+    <!--<laf name="looks">
+      <os family="windows" />
+      <param name="variant" value="windows" />
+    </laf>-->
+    <laf name="substance">
+        <os family="mac" />
+        <os family="windows" />
+        <os family="unix" />
+        <param name="variant" value="business-blue" />
+    </laf>
     <modifier key="useHeadingPanel" value="yes" />
     <modifier key="useHeadingForSummary" value="yes" />
     <modifier key="headingImageOnLeft" value="yes" />
@@ -28,13 +39,18 @@
 
   <locale>
     <langpack iso3="fra" />
+    <langpack iso3="eng" />
   </locale>
 
   <resources>
     <res id="Installer.image" src="logo.png" />
     <res id="Heading.image" src="logo.png" />
     <res id="HTMLInfoPanel.info" src="html/readme.html" parse="no"/>
+    <res id="HTMLInfoPanel.info_fra" src="html/readme.html_fra" parse="no"/>
+    <res id="HTMLInfoPanel.info_eng" src="html/readme.html_eng" parse="no"/>
     <res id="LicencePanel.licence" src="license.txt"/>
+    <res id="LicencePanel.licence_fra" src="license.txt_fra"/>
+    <res id="LicencePanel.licence_eng" src="license.txt_eng"/>
     <res id="ProcessPanel.Spec.xml" src="postprocess.xml" />
   </resources>
 
@@ -110,7 +126,7 @@
       </fileset>      
       <parsable targetfile="$INSTALL_PATH/bin/SilverpeasSettings.sh" type="plain" encoding="UTF-8" />
       <parsable targetfile="$INSTALL_PATH/bin/silverpeas_start_jboss.sh" type="plain" encoding="UTF-8" />
-       <parsable targetfile="$INSTALL_PATH/bin/silverpeas_stop_jboss.sh" type="plain" encoding="UTF-8" />
+      <parsable targetfile="$INSTALL_PATH/bin/silverpeas_stop_jboss.sh" type="plain" encoding="UTF-8" />
       <parsable targetfile="$INSTALL_PATH/bin/start_db.sh" type="plain" encoding="UTF-8" />
       <parsable targetfile="$INSTALL_PATH/bin/stop_db.sh" type="plain" encoding="UTF-8"/>
       
