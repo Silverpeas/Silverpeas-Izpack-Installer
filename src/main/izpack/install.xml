@@ -15,17 +15,13 @@
     <javaversion>1.6</javaversion>
   </info>
 
-  <guiprefs width="800" height="600" resizable="yes">
-    <!--<splash>logo.png</splash>-->
-    <!--<laf name="looks">
-      <os family="windows" />
-      <param name="variant" value="windows" />
-    </laf>-->
+  <guiprefs width="800" height="600" resizable="no">
+    <splash>peas_load.gif</splash>
     <laf name="substance">
         <os family="mac" />
         <os family="windows" />
         <os family="unix" />
-        <param name="variant" value="business-blue" />
+        <param name="variant" value="officesilver" />
     </laf>
     <modifier key="useHeadingPanel" value="yes" />
     <modifier key="useHeadingForSummary" value="yes" />
@@ -39,11 +35,11 @@
 
   <locale>
     <langpack iso3="fra" />
-    <langpack iso3="eng" />
+    <!--<langpack iso3="eng" />-->
   </locale>
 
   <resources>
-    <res id="Installer.image" src="logo.png" />
+    <res id="Installer.image" src="deco.jpg" />
     <res id="Heading.image" src="logo.png" />
     <res id="HTMLInfoPanel.info" src="html/readme.html" parse="no"/>
     <res id="HTMLInfoPanel.info_fra" src="html/readme.html_fra" parse="no"/>
@@ -52,6 +48,7 @@
     <res id="LicencePanel.licence_fra" src="license.txt_fra"/>
     <res id="LicencePanel.licence_eng" src="license.txt_eng"/>
     <res id="ProcessPanel.Spec.xml" src="postprocess.xml" />
+    <res src="schemaMailing_mid.jpg" id="intranet"/>
   </resources>
 
   <panels>

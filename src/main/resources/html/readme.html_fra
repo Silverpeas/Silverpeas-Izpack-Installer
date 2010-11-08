@@ -9,7 +9,8 @@ and open the template in the editor.
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   </head>
   <body>
-    <h2>Silverpeas Français</h2>
+    <h2>Votre Intranet/Extranet prêt à l'emploi</h2>
+  <p align="center"><img src="intranet" /></p>
   <p>Silverpeas est au départ, un portail collaboratif, édité par la société Silverpeas à Grenoble. Utilisé par des organismes de recherche (CNRS, INRA), des administrations et collectivités, des entreprises industrielles, des pôles de compétitivité, des communautés de pratiques.</p>
   <p>La plate-forme Silverpeas ™ est une plateforme « XNet », qui répond avec un seul et même outil à l’ensemble des besoins exprimés, grâce à un paramétrage très poussé basé sur XML (formulaires, workflow, connecteurs d’intégration), et une personnalisation graphique basée sur le standard JSR168 (Portlets).</p>
   <p>
