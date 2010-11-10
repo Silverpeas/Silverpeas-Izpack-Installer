@@ -16,12 +16,12 @@
   </info>
 
   <guiprefs width="800" height="600" resizable="no">
-    <splash>peas_load.gif</splash>
+    <splash>images/peas_load.gif</splash>
     <laf name="substance">
-        <os family="mac" />
-        <os family="windows" />
-        <os family="unix" />
-        <param name="variant" value="officesilver" />
+      <os family="mac" />
+      <os family="windows" />
+      <os family="unix" />
+      <param name="variant" value="mist-silver" />
     </laf>
     <modifier key="useHeadingPanel" value="yes" />
     <modifier key="useHeadingForSummary" value="yes" />
@@ -35,31 +35,36 @@
 
   <locale>
     <langpack iso3="fra" />
-    <!--<langpack iso3="eng" />-->
+    <langpack iso3="eng" />
   </locale>
 
   <resources>
-    <res id="Installer.image" src="deco.jpg" />
-    <res id="Heading.image" src="logo.png" />
-    <res id="HTMLInfoPanel.info" src="html/readme.html" parse="no"/>
-    <res id="HTMLInfoPanel.info_fra" src="html/readme.html_fra" parse="no"/>
-    <res id="HTMLInfoPanel.info_eng" src="html/readme.html_eng" parse="no"/>
+    <res id="puce.image" src="images/puce.png" />
+    <res id="Installer.image" src="images/deco.jpg" />
+    <res id="Heading.image" src="images/logo.png" />
+    <res id="HTMLInfoPanel.introduction_fra" src="html/readme_fra.html" parse="no"/>
+    <res id="HTMLInfoPanel.introduction_eng" src="html/readme_eng.html" parse="no"/>
+    <res id="HTMLInfoPanel.instructions_fra" src="html/instructions_windows_fra.html" parse="yes" type="plain" encoding="UTF-8" os="windows"/>
+    <res id="HTMLInfoPanel.instructions_fra" src="html/instructions_unix_fra.html" parse="yes" type="plain" encoding="UTF-8" os="unix"/>
+    <res id="HTMLInfoPanel.instructions_fra" src="html/instructions_unix_fra.html" parse="yes" type="plain" encoding="UTF-8" os="mac"/>
+    <res id="HTMLInfoPanel.instructions_eng" src="html/instructions_windows_eng.html" parse="yes" type="plain" encoding="UTF-8" os="windows"/>
+    <res id="HTMLInfoPanel.instructions_eng" src="html/instructions_unix_eng.html" parse="yes" type="plain" encoding="UTF-8" os="unix"/>
+    <res id="HTMLInfoPanel.instructions_eng" src="html/instructions_unix_eng.html" parse="yes" type="plain" encoding="UTF-8" os="mac"/>
     <res id="LicencePanel.licence" src="license.txt"/>
-    <res id="LicencePanel.licence_fra" src="license.txt_fra"/>
-    <res id="LicencePanel.licence_eng" src="license.txt_eng"/>
     <res id="ProcessPanel.Spec.xml" src="postprocess.xml" />
-    <res src="schemaMailing_mid.jpg" id="intranet"/>
+    <res id="intranet" src="images/schemaMailing_mid.jpg" />
   </resources>
 
   <panels>
     <panel classname="HelloPanel" />
-    <panel classname="HTMLInfoPanel" id="info" />
+    <panel classname="HTMLInfoPanel" id="introduction" />
     <panel classname="LicencePanel" id="licence" />
     <panel classname="TargetPanel" id="dir.windows" ShowCreateDirectoryMessage="false" />
     <panel classname="PacksPanel" />
     <panel classname="SummaryPanel" />
     <panel classname="InstallPanel" />
     <panel classname="ProcessPanel" />
+    <panel classname="HTMLInfoPanel" id="instructions" />
     <panel classname="SimpleFinishPanel" />
   </panels>
 
