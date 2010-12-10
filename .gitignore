@@ -1,13 +1,13 @@
 target
-src/main/resources/package/silverpeas-5.4-SNAPSHOT/META-INF/
-src/main/resources/package/silverpeas-5.4-SNAPSHOT/data/
-src/main/resources/package/silverpeas-5.4-SNAPSHOT/dbRepository/
-src/main/resources/package/silverpeas-5.4-SNAPSHOT/initialize/
-src/main/resources/package/silverpeas-5.4-SNAPSHOT/jar/
-src/main/resources/package/silverpeas-5.4-SNAPSHOT/log/
-src/main/resources/package/silverpeas-5.4-SNAPSHOT/properties/
-src/main/resources/package/silverpeas-5.4-SNAPSHOT/repository/
-src/main/resources/package/silverpeas-5.4-SNAPSHOT/resources/
-src/main/resources/package/silverpeas-5.4-SNAPSHOT/silvertrace/
-src/main/resources/package/silverpeas-5.4-SNAPSHOT/xmlcomponents/
+src/main/resources/package/silverpeas-5.4/META-INF/
+src/main/resources/package/silverpeas-5.4/data/
+src/main/resources/package/silverpeas-5.4/dbRepository/
+src/main/resources/package/silverpeas-5.4/initialize/
+src/main/resources/package/silverpeas-5.4/jar/
+src/main/resources/package/silverpeas-5.4/log/
+src/main/resources/package/silverpeas-5.4/properties/
+src/main/resources/package/silverpeas-5.4/repository/
+src/main/resources/package/silverpeas-5.4/resources/
+src/main/resources/package/silverpeas-5.4/silvertrace/
+src/main/resources/package/silverpeas-5.4/xmlcomponents/
 
