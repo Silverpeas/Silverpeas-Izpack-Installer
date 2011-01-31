@@ -1,0 +1,1 @@
+<html><head/><body><p><b>Message [$title$] - à modérer : </b></p><p>$summary$ ...</p></body></html>

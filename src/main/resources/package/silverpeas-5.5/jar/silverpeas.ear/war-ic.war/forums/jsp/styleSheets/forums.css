@@ -1,0 +1,231 @@
+/**
+ * Copyright (C) 2000 - 2009 Silverpeas
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * As a special exception to the terms and conditions of version 3.0 of
+ * the GPL, you may redistribute this Program in connection with Free/Libre
+ * Open Source Software ("FLOSS") applications as described in Silverpeas's
+ * FLOSS exception.  You should have recieved a copy of the text describing
+ * the FLOSS exception, and it is also available here:
+ * "http://www.silverpeas.com/legal/licensing"
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+
+.selectNS            { 
+  font-size: 10px; font-weight: normal; color: #000000 
+}
+
+.componentName { 
+  font-size: 13pt; font-weight: bold; color: #000000 
+}
+
+.txtnote {
+  font-size: 10px; color: #000000 ;
+}
+
+.txtnote:hover { 
+  font-size: 10px; color: #666699 ; 
+}
+
+.txttitrecol  { 
+  font-size: 10px; color: #000000 ; font-weight: bold 
+}
+
+.texteLabelForm {
+  font-size: 10px; color: #666666; font-weight: bold 
+}
+
+.txtnav {
+  font-size: 10pt; font-weight: bold; color: #000000 
+}
+
+
+
+.titreCateg {
+  font-size: 11px;
+  font-weight: bold;
+  background-color: #EAEAEA;
+  text-align:left !important;
+  border-bottom:1px solid #CFCFCF;
+}
+
+.titreForum {
+  font-size: 11px;
+}
+
+.fondClair {
+  background-color: #efefef;
+}
+
+.fondFonce {
+  background-color: #EAEAEA;
+}
+
+.testTableau {
+  border: 1px solid #CCCCCC;
+}
+
+.testTableau tr td:first-child.ArrayCell img:first-child { 
+  margin-left:20px;
+}
+
+#msgDiv {
+  position: static;
+  height: 120px;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto
+}
+
+.msgLine {
+  background-color : #eaeaea
+}
+
+.msgText {
+  background-color : #ffffff
+}
+
+#responseTable {
+  display: none
+}
+
+.notation_on {
+  background-image:url(../icons/starFilled.gif);
+  background-position:center;
+  background-repeat:no-repeat;
+  width: 13px;
+  height: 11px;
+  border: 0px
+}
+
+.notation_off {
+  background-image:url(../icons/starEmpty.gif);
+  background-position:center;
+  background-repeat:no-repeat;
+  width: 13px;
+  height: 11px;
+  border: 0px
+}
+
+.notationLine {
+  height: 20px;
+  vertical-align: top
+}
+
+#notationImg1, #notationImg2, #notationImg3, #notationImg4, #notationImg5 {
+  cursor: pointer
+}
+
+.message_A {
+  color: red
+}
+
+.message_R {
+  color: gray
+}
+
+.contourintfdcolor{
+  position:relative;
+  margin-bottom: 10px;
+  height:auto;
+  width:100%;
+}
+
+
+.user {
+  width:13%;
+  float:left;
+  clear: both;
+  border-right:1px solid #CCC;
+  overflow:hidden;
+}
+.message {
+  width:86%;
+  float:right;
+}
+
+
+.profilPhoto {
+  border:1px solid #CCCCCC;
+  float:left;
+  margin:7px;
+  overflow:hidden;
+  max-width:87px;
+  width: 80%;
+}
+.profilPhoto img {
+  width:100%;
+}
+
+.userName ,  .nbMessage, .userName a, .nbMessage a{
+  font-size:11px;
+  color:#000;
+  font-weight:bold;
+}
+.nbMessage, .nbMessage a{
+  color:#666666;
+  font-size:10px;
+}
+
+.info ul {
+  margin: 0;
+  padding: 0;
+}
+
+.info ul li {
+  display:list-item;
+  list-style-type:none;
+  width:100%;
+}
+
+.info ul { 
+  padding:10px 0px 4px 5px; 
+  float:left;
+  color:#909090; font-size:11px;
+  width:60%;
+}
+
+.info ul a:hover {
+  color:#000
+}
+
+.messageFooter {
+  position:absolute;
+  bottom: 10px;
+  right: 0px;
+  width: 86%;
+}
+
+* html .messageFooter {
+	width: 100%;
+}
+
+.messageFooter input {
+	border:0;
+	}
+
+.messageHeader img {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.messageActions {
+  float:right;
+  margin-right: 10px;
+}
+
+
+

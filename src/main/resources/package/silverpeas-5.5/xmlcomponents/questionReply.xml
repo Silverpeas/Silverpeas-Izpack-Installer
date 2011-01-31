@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright (C) 2000 - 2009 Silverpeas
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    As a special exception to the terms and conditions of version 3.0 of
+    the GPL, you may redistribute this Program in connection with Free/Libre
+    Open Source Software ("FLOSS") applications as described in Silverpeas's
+    FLOSS exception.  You should have received a copy of the text describing
+    the FLOSS exception, and it is also available here:
+    "http://repository.silverpeas.com/legal/licensing"
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+-->
+
+<WAComponent>
+  <name>questionReply</name>
+  <label>Questions/Réponses - Questions aux experts</label>
+  <description>Permet de gérer la base de connaissances des questions posées par les utilisateurs
+  vers les experts, localiser automatiquement l'expert apte à répondre à une question et gérer
+  la distribution de la réponse vers les utilisateurs.</description>
+  <suite>03 Gestion de la connaissance</suite>
+  <portlet>yes</portlet>
+  <visible>yes</visible>
+  <instanceClassName>com.silverpeas.questionReply.QuestionReplyInstanciator</instanceClassName>
+  <Profiles>
+    <Profile name="admin">Animateur</Profile>
+    <Profile name="publisher">Demandeur</Profile>
+    <Profile name="writer">Expert</Profile>
+    <Profile name="user">Lecteur</Profile>
+  </Profiles>
+  <Parameters>
+    <Parameter>
+      <ParameterName>privateRepliesUsed</ParameterName>
+      <ParameterLabel>Utilisation des réponses privées</ParameterLabel>
+      <ParameterType>checkbox</ParameterType>
+      <ParameterValue>no</ParameterValue>
+      <ParameterMandatory>Y</ParameterMandatory>
+      <ParameterUpdatable>always</ParameterUpdatable>
+      <ParameterOrder>1</ParameterOrder>
+      <ParameterHelp>
+        <ParameterHelpFr>Possibilité de créer des réponses privées</ParameterHelpFr>
+        <ParameterHelpEn>Private answer re authorized</ParameterHelpEn>
+      </ParameterHelp>
+    </Parameter>
+    <Parameter>
+      <ParameterName>sortable</ParameterName>
+      <ParameterLabel>Questions triées par ordre</ParameterLabel>
+      <ParameterType>checkbox</ParameterType>
+      <ParameterValue>no</ParameterValue>
+      <ParameterMandatory>N</ParameterMandatory>
+      <ParameterUpdatable>always</ParameterUpdatable>
+      <ParameterOrder>2</ParameterOrder>
+      <ParameterHelp>
+        <ParameterHelpFr>Possibilité de trier les questions</ParameterHelpFr>
+        <ParameterHelpEn>Questions are sortable</ParameterHelpEn>
+      </ParameterHelp>
+    </Parameter>
+  </Parameters>
+</WAComponent>
