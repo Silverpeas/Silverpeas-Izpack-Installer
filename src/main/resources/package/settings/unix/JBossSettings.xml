@@ -4,7 +4,7 @@
     <var name="JBOSS_SERVER" value="${JBOSS_HOME}/server/default"/>
     <var name="JBOSS_START" value="/bin/silverpeas_start_jboss.sh"/>
     <var name="JBOSS_CONF" value="/bin/silverpeas_start_jboss.sh"/>
-    <var name="DATASOURCE" value="java:/Silverpeas"/>
+    <var name="DATASOURCE" value="Silverpeas"/>
   </global-vars>
 
 
@@ -101,5 +101,12 @@
         <value location="@name">${DATASOURCE}</value>
       </parameter>
     </xmlfile>
+  </fileset>
+
+  <fileset root="${SILVERPEAS_HOME}/data/portlets/config/">
+    <configfile name="pcenv.conf">
+      <parameter key="TOMCAT_WEBAPPS_DIR">${JBOSS_SERVER}/deploy</parameter>
+      <parameter key="TOMCAT_HOME">${JBOSS_SERVER}/deploy/jbossweb-tomcat55.sar</parameter>
+    </configfile>
   </fileset>
 </silverpeas-settings>
