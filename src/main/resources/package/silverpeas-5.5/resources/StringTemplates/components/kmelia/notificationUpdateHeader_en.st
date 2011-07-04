@@ -1,1 +1,0 @@
-The publication's header "$publicationName$" has been modified by one of the supervisors.

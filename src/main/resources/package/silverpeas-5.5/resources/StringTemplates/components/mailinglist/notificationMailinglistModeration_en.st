@@ -1,1 +1,0 @@
-<html><head/><body><p><b>Message [$title$] - to be moderated : </b></p><p>$summary$ ...</p></body></html>

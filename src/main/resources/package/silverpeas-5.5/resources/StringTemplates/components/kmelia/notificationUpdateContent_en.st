@@ -1,1 +1,0 @@
-The  publication's content "$publicationName$" has been modified by one of the supervisors.
