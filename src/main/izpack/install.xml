@@ -6,11 +6,9 @@
   -->
   <info>
     <appname>Silverpeas</appname>
-    <appversion>5.5</appversion>
+    <appversion>5.9.1</appversion>
     <url>http://www.silverpeas.org/</url>
     <authors>
-      <author name="Emmanuel Hugonnet" email="emmanuel.hugonnet@silverpeas.com"/>
-      <author name="Nicolas Eysseric" email="nicolas.eysseric@silverpeas.com"/>
     </authors>
     <javaversion>1.6</javaversion>
   </info>
@@ -33,6 +31,12 @@
     <modifier key="headingPanelCounterPos" value="inHeading" />
   </guiprefs>
 
+  <variables>
+    <variable name="JDKPathPanel.minVersion" value="1.6"/>
+    <variable name="JDKPathPanel.maxVersion" value="1.6.0_99"/>
+    <variable name="JDKPathPanel.skipIfValid" value="no"/> 
+  </variables>
+
   <locale>
     <langpack iso3="fra" />
     <langpack iso3="eng" />
@@ -50,6 +54,8 @@
     <res id="HTMLInfoPanel.instructions_eng" src="html/instructions_windows_eng.html" parse="yes" type="plain" encoding="UTF-8" os="windows"/>
     <res id="HTMLInfoPanel.instructions_eng" src="html/instructions_unix_eng.html" parse="yes" type="plain" encoding="UTF-8" os="unix"/>
     <res id="HTMLInfoPanel.instructions_eng" src="html/instructions_unix_eng.html" parse="yes" type="plain" encoding="UTF-8" os="mac"/>
+    <res id="TargetPanel.dir" src="config/targetdir_unix.txt" os="unix"/>
+    <res id="TargetPanel.dir" src="config/targetdir_windows.txt" os="windows"/>
     <res id="LicencePanel.licence" src="license.txt"/>
     <res id="ProcessPanel.Spec.xml" src="postprocess.xml" />
     <res id="intranet" src="images/schemaMailing_mid.jpg" />
@@ -58,7 +64,7 @@
   <panels>
     <panel classname="HelloPanel" />
     <panel classname="HTMLInfoPanel" id="introduction" />
-    <panel classname="LicencePanel" id="licence" />
+    <panel classname="JDKPathPanel" id="jdk" />
     <panel classname="TargetPanel" id="dir.windows" ShowCreateDirectoryMessage="false" />
     <panel classname="PacksPanel" />
     <panel classname="SummaryPanel" />
@@ -71,14 +77,15 @@
   <packs>
     <pack name="Silverpeas" required="yes">
       <description>Install $APP_NAME $APP_VER</description>
-      <fileset dir="package/silverpeas-5.5" targetdir="$INSTALL_PATH">    
+      <fileset dir="package/silverpeas-5.9.1" targetdir="$INSTALL_PATH">    
         <include name="bin/**" />
         <include name="data/**"/>
         <include name="dbRepository/**"/>
         <include name="initialize/**"/>
         <include name="jar/**"/>   
-        <include name="log"/>         
-        <include name="properties/**"/>    
+        <include name="log/**"/>         
+        <include name="properties/**"/>
+        <include name="repository/jboss/**"/>   
         <include name="setup/**"/> 
         <include name="resources/**"/>
         <include name="silvertrace/**"/>
@@ -96,12 +103,12 @@
     </pack>
     <pack name="JBoss" required="yes">
       <description>Install JBoss Application Server</description>      
-      <file src="jboss403.zip" targetdir="$INSTALL_PATH" unpack="true" />
+      <file src="package/jboss-6.1.0.Final.zip" targetdir="$INSTALL_PATH" unpack="true" />
     </pack>
     <pack name="Silverpeas Configuration Windows" required="yes" >
       <description>Prepare $APP_NAME $APP_VER</description>
       <os family="windows" />    
-      <fileset dir="package/silverpeas-5.5" targetdir="$INSTALL_PATH">
+      <fileset dir="package/silverpeas-5.9.1" targetdir="$INSTALL_PATH">
         <include name="bin/*.bat"/>
         <include name="bin/*.cmd"/>
         <exclude name="**/*.sh" />
@@ -118,7 +125,7 @@
       <description>Prepare $APP_NAME $APP_VER</description>
       <os family="unix" />
       <os family="mac" />
-      <fileset dir="package/silverpeas-5.5" targetdir="$INSTALL_PATH">
+      <fileset dir="package/silverpeas-5.9.1" targetdir="$INSTALL_PATH">
         <include name="bin/*.sh"/>
         <exclude name="**/*.bat" />
         <exclude name="**/*.cmd" />
@@ -137,7 +144,7 @@
       <executable targetfile="$INSTALL_PATH/bin/silverpeas_start_jboss.sh" stage="never"/>
       <executable targetfile="$INSTALL_PATH/bin/silverpeas_stop_jboss.sh" stage="never"/>
       <executable targetfile="$INSTALL_PATH/bin/SilverpeasSettings.sh" stage="never"/>
-      <executable targetfile="$INSTALL_PATH/jboss403/bin/run.sh" stage="never"/>      
+      <executable targetfile="$INSTALL_PATH/jboss-6.1.0.Final/bin/run.sh" stage="never"/>      
     </pack>
   </packs>
 </installation>
