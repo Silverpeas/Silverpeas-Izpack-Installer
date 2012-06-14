@@ -7,9 +7,15 @@
     <var name="JBOSS_CONF"     value="${JBOSS_SERVER}/conf"/>
     <var name="JBOSS_START"  value="silverpeas_start_jboss.cmd"/>
     <var name="JBOSS_DEBUG"    value="silverpeas_debug_jboss.cmd"/>
-    <var name="DATASOURCE"     value="Silverpeas"/>
-    <var name="KEY_APPURIS"    value='$eval{{if(new String("${INSTALL_CONTEXT}").equals("install")) value="applicationURIs"; else value="";}}' />
+    <var name="DATASOURCE"     value="java:/datasources/silverpeas-jdbc"/>
   </global-vars>
+  
+  
+  <script name="computeInstallationContext.groovy" />
+  
+  
+  <!-- secure JBoss server -->
+  <script name="securejboss.groovy" />
 
   <!-- copy the silverpeas EAR built by maven into the JBoss server deployment repository -->
   <fileset root="${JAR_HOME}/">
@@ -33,20 +39,26 @@
     <copyfile name="silverpeas-ds.xml">
             ${JBOSS_SERVER}/deploy/silverpeas/silverpeas-ds.xml
     </copyfile>
+    <copyfile name="silverpeas-jpa-ds.xml">
+      ${JBOSS_SERVER}/deploy/silverpeas/silverpeas-jpa-ds.xml
+    </copyfile>
+    <copyfile name="jackrabbit-ds.xml">
+      ${JBOSS_SERVER}/deploy/silverpeas/jackrabbit-ds.xml
+    </copyfile>
   </fileset>
 
   <!-- tunes the memory allocation of the JBoss server for silverpeas -->
   <fileset root="${SILVERPEAS_HOME}/bin/">
     <textfile name="${JBOSS_START}">
-      <parameter key="-Xms[0-9]+m" use-regex="true">-Xms${RAM_MIN}m</parameter>
-      <parameter key="-Xmx[0-9]+m" use-regex="true">-Xmx${RAM_MAX}m</parameter>
+      <parameter key="HEAP_SIZE=\d*" use-regex="true">HEAP_SIZE=${RAM_MAX}</parameter>
       <parameter key="-XX:MaxPermSize=[0-9]+m" use-regex="true">-XX:MaxPermSize=${PERMSIZE_MAX}m</parameter>
+      <parameter key="ADDITIONAL_JAVA_OPTS=.*" use-regex="true">ADDITIONAL_JAVA_OPTS=${JAVA_OPTS}</parameter>
       <parameter key="PROFILE=[a-zA-Z]+" use-regex="true">PROFILE=${JBOSS_SERVER_PROFILE}</parameter>
     </textfile>
     <textfile name="${JBOSS_DEBUG}">
-      <parameter key="-Xms[0-9]+m" use-regex="true">-Xms${RAM_MIN}m</parameter>
-      <parameter key="-Xmx[0-9]+m" use-regex="true">-Xmx${RAM_MAX}m</parameter>
+      <parameter key="HEAP_SIZE=\d*" use-regex="true">HEAP_SIZE=${RAM_MAX}</parameter>
       <parameter key="-XX:MaxPermSize=[0-9]+m" use-regex="true">-XX:MaxPermSize=${PERMSIZE_MAX}m</parameter>
+      <parameter key="ADDITIONAL_JAVA_OPTS=.*" use-regex="true">ADDITIONAL_JAVA_OPTS=${JAVA_OPTS}</parameter>
       <parameter key="PROFILE=[a-zA-Z]+" use-regex="true">PROFILE=${JBOSS_SERVER_PROFILE}</parameter>
     </textfile>
   </fileset>
@@ -65,15 +77,6 @@
     <xmlfile name="profile.xml">
       <parameter key="/deployment/bean[@name='UserProfileFactory']/property[@name='${KEY_APPURIS}']/list" mode="insert">
         <value location="value">file:/${SILVERPEAS_DATA_WEB}</value>
-      </parameter>
-    </xmlfile>
-  </fileset>
-
-  <!-- after a fresh installation, the next silverpeas build will be considered as an update -->
-  <fileset root="${SILVERPEAS_HOME}/setup/settings/">
-    <xmlfile name="config.xml">
-      <parameter key="//var[@name='INSTALL_CONTEXT']">
-        <value location="@value">update</value>
       </parameter>
     </xmlfile>
   </fileset>
@@ -112,17 +115,73 @@
       <parameter key="/datasources/local-tx-datasource/password">
         <value>${DB_PASSWD}</value>
       </parameter>
+      <parameter key="/datasources/local-tx-datasource/min-pool-size">
+        <value>${MIN_POOL_SIZE}</value>
+      </parameter>
+      <parameter key="/datasources/local-tx-datasource/max-pool-size">
+        <value>${MAX_POOL_SIZE}</value>
+      </parameter>
+      <parameter key="/datasources/local-tx-datasource/idle-timeout-minutes">
+        <value>${IDLE_TIMEOUT}</value>
+      </parameter>
+      <parameter key="/datasources/local-tx-datasource/prepared-statement-cache-size">
+        <value>${STATEMENT_CACHE_SIZE}</value>
+      </parameter>
+    </xmlfile>
+    <xmlfile name="silverpeas/jackrabbit-ds.xml">
+      <parameter key="/datasources/no-tx-datasource/connection-url">
+        <value>${DB_URL}</value>
+      </parameter>
+      <parameter key="/datasources/no-tx-datasource/driver-class">
+        <value>${DB_DRIVER}</value>
+      </parameter>
+      <parameter key="/datasources/no-tx-datasource/user-name">
+        <value>${DB_USER}</value>
+      </parameter>
+      <parameter key="/datasources/no-tx-datasource/password">
+        <value>${DB_PASSWD}</value>
+      </parameter>
+      <parameter key="/datasources/no-tx-datasource/min-pool-size">
+        <value>${MIN_POOL_SIZE}</value>
+      </parameter>
+      <parameter key="/datasources/no-tx-datasource/max-pool-size">
+        <value>${MAX_POOL_SIZE}</value>
+      </parameter>
+    </xmlfile>
+    <xmlfile name="silverpeas/silverpeas-jpa-ds.xml">
+      <parameter key="/datasources/local-tx-datasource/connection-url">
+        <value>${DB_URL}</value>
+      </parameter>
+      <parameter key="/datasources/local-tx-datasource/driver-class">
+        <value>${DB_DRIVER}</value>
+      </parameter>
+      <parameter key="/datasources/local-tx-datasource/user-name">
+        <value>${DB_USER}</value>
+      </parameter>
+      <parameter key="/datasources/local-tx-datasource/password">
+        <value>${DB_PASSWD}</value>
+      </parameter>
+      <parameter key="/datasources/local-tx-datasource/min-pool-size">
+        <value>${MIN_POOL_SIZE}</value>
+      </parameter>
+      <parameter key="/datasources/local-tx-datasource/max-pool-size">
+        <value>${MAX_POOL_SIZE}</value>
+      </parameter>
+      <parameter key="/datasources/local-tx-datasource/idle-timeout-minutes">
+        <value>${IDLE_TIMEOUT}</value>
+      </parameter>
+      <parameter key="/datasources/local-tx-datasource/prepared-statement-cache-size">
+        <value>${STATEMENT_CACHE_SIZE}</value>
+      </parameter>
     </xmlfile>
   </fileset>
 
-<!-- V4.0 : nouveau -->
   <fileset root="${SILVERPEAS_HOME}/properties/com/stratelia/webactiv/util/">
     <configfile name="jndi.properties">
-      <parameter key="SILVERSTATISTICS_JMS_QUEUE">queue/statisticsQueue</parameter>
+      <parameter key="SILVERSTATISTICS_JMS_QUEUE">java:/queue/statisticsQueue</parameter>
       <parameter key="SILVERSTATISTICS_JMS_FACTORY">java:/XAConnectionFactory</parameter>
-      <parameter key="JMS_QUEUE">queue/notificationsQueue</parameter>
+      <parameter key="JMS_QUEUE">java:/queue/notificationsQueue</parameter>
       <parameter key="JMS_FACTORY">java:/XAConnectionFactory</parameter>
-
       <parameter key="ATTACHMENT_DATASOURCE">${DATASOURCE}</parameter>
       <parameter key="CONTAINERMANAGER_DATASOURCE">${DATASOURCE}</parameter>
       <parameter key="CONTENTMANAGER_DATASOURCE">${DATASOURCE}</parameter>

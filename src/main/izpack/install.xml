@@ -6,10 +6,9 @@
   -->
   <info>
     <appname>Silverpeas</appname>
-    <appversion>5.9.1</appversion>
+    <appversion>5.9.2</appversion>
     <url>http://www.silverpeas.org/</url>
-    <authors>
-    </authors>
+    <authors></authors>
     <javaversion>1.6</javaversion>
   </info>
 
@@ -115,6 +114,7 @@
       </fileset>
       <fileset dir="package/settings/windows" targetdir="$INSTALL_PATH/setup/settings" override="true">
         <include name="*.xml"/>
+         <include name="*.properties"/>
       </fileset>
       <parsable targetfile="$INSTALL_PATH/bin/SilverpeasSettings.bat" type="plain" encoding="UTF-8"  />
       <parsable targetfile="$INSTALL_PATH/bin/silverpeas_start_jboss.cmd" type="plain" encoding="UTF-8" />
@@ -132,6 +132,7 @@
       </fileset>
       <fileset dir="package/settings/unix" targetdir="$INSTALL_PATH/setup/settings" override="true">
         <include name="*.xml"/>
+         <include name="*.properties"/>
       </fileset>      
       <parsable targetfile="$INSTALL_PATH/bin/SilverpeasSettings.sh" type="plain" encoding="UTF-8" />
       <parsable targetfile="$INSTALL_PATH/bin/silverpeas_start_jboss.sh" type="plain" encoding="UTF-8" />
