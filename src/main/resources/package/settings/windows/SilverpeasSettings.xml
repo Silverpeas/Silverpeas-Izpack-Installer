@@ -8,12 +8,6 @@
     <var name="DB_DRIVER_POSTGRES" value="org.postgresql.Driver"/>
     <var name="DB_DRIVER" value='$eval{{if(new String("${DB_SERVERTYPEU}").equals("MSSQL")) value="${DB_DRIVER_MSSQL}"; else if(new String("${DB_SERVERTYPEU}").equals("POSTGRES")) value="${DB_DRIVER_POSTGRES}"; else if(new String("${DB_SERVERTYPEU}").equals("H2")) value="${DB_DRIVER_H2}";else value="${DB_DRIVER_ORACLE}";}}'/>
 
-    <var name="XA_DRIVER_MSSQL" value="net.sourceforge.jtds.jdbcx.JtdsDataSource"/>
-    <var name="XA_DRIVER_H2" value="org.h2.jdbcx.JdbcDataSource"/>
-    <var name="XA_DRIVER_ORACLE" value="oracle.jdbc.xa.client.OracleXADataSource"/>
-    <var name="XA_DRIVER_POSTGRES" value="org.postgresql.xa.PGXADataSource"/>
-    <var name="XA_DRIVER" value='$eval{{if(new String("${DB_SERVERTYPEU}").equals("MSSQL")) value="${XA_DRIVER_MSSQL}"; else if(new String("${DB_SERVERTYPEU}").equals("POSTGRES")) value="${XA_DRIVER_POSTGRES}"; else if(new String("${DB_SERVERTYPEU}").equals("H2")) value="${XA_DRIVER_H2}"; else value="${XA_DRIVER_ORACLE}";}}'/>
-
     <var name="SQL_LISTEN_PORT" value='$eval{{if(new String("${DB_SERVERTYPEU}").equals("MSSQL")) value="${SQL_LISTEN_PORT_MSSQL}"; else if(new String("${DB_SERVERTYPEU}").equals("POSTGRES")) value="${SQL_LISTEN_PORT_POSTGRES}"; else if(new String("${DB_SERVERTYPEU}").equals("H2")) value="${SQL_LISTEN_PORT_H2}"; else value="${SQL_LISTEN_PORT_ORACLE}";}}'/>
     <var name="DB_URL_MSSQL" value="jdbc:jtds:sqlserver://${DB_SERVER}:${SQL_LISTEN_PORT}/${DB_NAME}"/>
     <var name="DB_URL_ORACLE" value="jdbc:oracle:thin:@${DB_SERVER}:${SQL_LISTEN_PORT}:${DB_NAME}"/>
@@ -21,11 +15,17 @@
     <var name="DB_URL_H2" value="jdbc:h2:tcp://${DB_SERVER}:${SQL_LISTEN_PORT}/${DB_NAME}"/>
     <var name="DB_URL" value='$eval{{if(new String("${DB_SERVERTYPEU}").equals("MSSQL")) value="${DB_URL_MSSQL}"; else if(new String("${DB_SERVERTYPEU}").equals("POSTGRES")) value="${DB_URL_POSTGRES}"; else if(new String("${DB_SERVERTYPEU}").equals("H2")) value="${DB_URL_H2}";else value="${DB_URL_ORACLE}";}}'/>
 
+    <var name="XA_DRIVER_MSSQL" value="net.sourceforge.jtds.jdbcx.JtdsDataSource"/>
+    <var name="XA_DRIVER_H2" value="org.h2.jdbcx.JdbcDataSource"/>
+    <var name="XA_DRIVER_ORACLE" value="oracle.jdbc.xa.client.OracleXADataSource"/>
+    <var name="XA_DRIVER_POSTGRES" value="org.postgresql.xa.PGXADataSource"/>
+    <var name="XA_DRIVER" value='$eval{{if(new String("${DB_SERVERTYPEU}").equals("MSSQL")) value="${XA_DRIVER_MSSQL}"; else if(new String("${DB_SERVERTYPEU}").equals("POSTGRES")) value="${XA_DRIVER_POSTGRES}"; else if(new String("${DB_SERVERTYPEU}").equals("H2")) value="${XA_DRIVER_H2}"; else value="${XA_DRIVER_ORACLE}";}}'/>
+
     <var name="HIBERNATE_DIALECT_MSSQL" value="org.hibernate.dialect.SQLServerDialect"/>
     <var name="HIBERNATE_DIALECT_H2" value="org.hibernate.dialect.H2Dialect"/>
     <var name="HIBERNATE_DIALECT_ORACLE" value="org.hibernate.dialect.OracleDialect"/>
     <var name="HIBERNATE_DIALECT_POSTGRES" value="org.hibernate.dialect.PostgreSQLDialect"/>
-    <var name="HIBERNATE_DIALECT" value='$eval{{if(new String("${DB_SERVERTYPEU}").equals("MSSQL")) value="${HIBERNATE_DIALECT_MSSQL}"; else if(new String("${DB_SERVERTYPEU}").equals("POSTGRES")) value="${HIBERNATE_DIALECT_POSTGRES}";  else if(new String("${DB_SERVERTYPEU}").equals("H2")) value="${HIBERNATE_DIALECT_H2}";else value="${HIBERNATE_DIALECT_ORACLE}";}}'/>
+    <var name="HIBERNATE_DIALECT" value='$eval{{if(new String("${DB_SERVERTYPEU}").equals("MSSQL")) value="${HIBERNATE_DIALECT_MSSQL}"; else if(new String("${DB_SERVERTYPEU}").equals("POSTGRES")) value="${HIBERNATE_DIALECT_POSTGRES}"; else if(new String("${DB_SERVERTYPEU}").equals("H2")) value="${HIBERNATE_DIALECT_H2}"; else value="${HIBERNATE_DIALECT_ORACLE}";}}'/>
 
     <var name="JACKRABBIT_PERSIST_H2" value="org.apache.jackrabbit.core.persistence.pool.H2PersistenceManager"/>
     <var name="JACKRABBIT_PERSIST_MSSQL" value="org.apache.jackrabbit.core.persistence.pool.MSSqlPersistenceManager"/>
@@ -44,7 +44,6 @@
     <var name="TEMP_HOME" value="${SILVERPEAS_DATA_HOME}/temp"/>
     <var name="LOG_HOME" value="${SILVERPEAS_HOME}/log"/>
   </global-vars>
-
   <!-- PROPERTIES CONFIGURATION -->
   <fileset root="${SILVERPEAS_HOME}/initialize/">
     <configfile name="systemSettings.properties">
@@ -318,11 +317,6 @@
       <parameter key="customersTemplatePath">${SILVERPEAS_DATA_HOME}/StringTemplates/components/rssaggregator/</parameter>
     </configfile>
     
-    <configfile name="socialNetwork/settings/socialNetworkSettings.properties">
-      <parameter key="templatePath">${SILVERPEAS_HOME}/resources/StringTemplates/core/socialNetwork/</parameter>
-      <parameter key="customersTemplatePath">${SILVERPEAS_DATA_HOME}/StringTemplates/core/socialNetwork/</parameter>
-    </configfile>
-    
     <configfile name="delegatednews/settings/DelegatedNewsSettings.properties">
       <parameter key="templatePath">${SILVERPEAS_HOME}/resources/StringTemplates/components/delegatednews/</parameter>
       <parameter key="customersTemplatePath">${SILVERPEAS_DATA_HOME}/StringTemplates/components/delegatednews/</parameter>
@@ -339,6 +333,7 @@
       <parameter key="template.dir.components.default">${SILVERPEAS_HOME}/resources/StringTemplates/components</parameter>
       <parameter key="template.dir.components.custom">${SILVERPEAS_DATA_HOME}/StringTemplates/components</parameter> 
     </configfile>
+
   </fileset>
 
   <fileset root="${SILVERPEAS_HOME}/bin/">
@@ -439,7 +434,6 @@
     </configfile>
   </fileset>
 
-
  <!-- Chat settings
   <fileset root="${SILVERPEAS_HOME}/properties/com/stratelia/silverpeas/">
     <configfile name="chat/settings/chatSettings.properties">
@@ -455,4 +449,5 @@
     </xmlfile>
   </fileset>
   -->
+
 </silverpeas-settings>

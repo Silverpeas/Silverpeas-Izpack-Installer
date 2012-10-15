@@ -6,7 +6,7 @@
   -->
   <info>
     <appname>Silverpeas</appname>
-    <appversion>5.9.2</appversion>
+    <appversion>5.10.1</appversion>
     <url>http://www.silverpeas.org/</url>
     <authors></authors>
     <javaversion>1.6</javaversion>
@@ -14,12 +14,14 @@
 
   <guiprefs width="800" height="600" resizable="no">
     <splash>images/peas_load.gif</splash>
+    <!--
     <laf name="substance">
       <os family="mac" />
       <os family="windows" />
       <os family="unix" />
       <param name="variant" value="mist-silver" />
     </laf>
+    -->
     <modifier key="useHeadingPanel" value="yes" />
     <modifier key="useHeadingForSummary" value="yes" />
     <modifier key="headingImageOnLeft" value="yes" />
@@ -76,7 +78,7 @@
   <packs>
     <pack name="Silverpeas" required="yes">
       <description>Install $APP_NAME $APP_VER</description>
-      <fileset dir="package/silverpeas-5.9.1" targetdir="$INSTALL_PATH">    
+      <fileset dir="package/silverpeas-5.10.1" targetdir="$INSTALL_PATH">    
         <include name="bin/**" />
         <include name="data/**"/>
         <include name="dbRepository/**"/>
@@ -125,7 +127,7 @@
       <description>Prepare $APP_NAME $APP_VER</description>
       <os family="unix" />
       <os family="mac" />
-      <fileset dir="package/silverpeas-5.9.1" targetdir="$INSTALL_PATH">
+      <fileset dir="package/silverpeas-5.10.1" targetdir="$INSTALL_PATH">
         <include name="bin/*.sh"/>
         <exclude name="**/*.bat" />
         <exclude name="**/*.cmd" />

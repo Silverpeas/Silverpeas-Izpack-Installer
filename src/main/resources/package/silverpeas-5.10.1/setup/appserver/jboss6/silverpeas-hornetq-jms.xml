@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ===================================================================== -->
+<!--                                                                       -->
+<!--  Queues setting for the JBoss-embedded HornetQ JMS System             -->
+<!--                                                                       -->
+<!-- ===================================================================== -->
+
+<configuration xmlns="urn:hornetq"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="urn:hornetq /schema/hornetq-jms.xsd">
+
+  <connection-factory name="SilverpeasConnectionFactory">
+    <connectors>
+      <connector-ref connector-name="netty" />
+    </connectors>
+    <entries>
+      <entry name="java:/XAConnectionFactory"/>
+      <entry name="java:/ConnectionFactory"/>
+    </entries>
+  </connection-factory>
+
+  <queue name="notificationsQueue">
+    <entry name="java:/queue/notificationsQueue" />
+  </queue>
+
+  <queue name="statisticsQueue">
+    <entry name="java:/queue/statisticsQueue"/>
+  </queue>
+
+  <topic name="comments">
+    <entry name="java:/topic/comment"/>
+  </topic>
+
+  <topic name="nodes">
+    <entry name="java:/topic/node"/>
+  </topic>
+  
+  <topic name="admin">
+    <entry name="java:/topic/admin"/>
+  </topic>
+  
+  <topic name="attachment">
+    <entry name="java:/topic/attachment"/>
+  </topic>
+
+</configuration>
