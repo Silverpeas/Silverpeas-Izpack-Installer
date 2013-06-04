@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
-<installation version="1.0">
+<installation version="5.0" xmlns="http://izpack.org/schema/installation"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://izpack.org/schema/installation http://izpack.org/schema/installation/izpack-installation-5.0.xsd">
   <!--
     Ant properties in this file can be referenced with @{}, otherwise use
     variables below in installer files with ${}
   -->
   <info>
     <appname>Silverpeas</appname>
-    <appversion>5.10.1</appversion>
+    <appversion>5.12</appversion>
     <url>http://www.silverpeas.org/</url>
     <authors></authors>
     <javaversion>1.6</javaversion>
@@ -35,7 +37,7 @@
   <variables>
     <variable name="JDKPathPanel.minVersion" value="1.6"/>
     <variable name="JDKPathPanel.maxVersion" value="1.6.0_99"/>
-    <variable name="JDKPathPanel.skipIfValid" value="no"/> 
+    <variable name="JDKPathPanel.skipIfValid" value="no"/>
   </variables>
 
   <locale>
@@ -78,16 +80,16 @@
   <packs>
     <pack name="Silverpeas" required="yes">
       <description>Install $APP_NAME $APP_VER</description>
-      <fileset dir="package/silverpeas-5.10.1" targetdir="$INSTALL_PATH">    
+      <fileset dir="package/silverpeas-5.12" targetdir="$INSTALL_PATH">
         <include name="bin/**" />
         <include name="data/**"/>
         <include name="dbRepository/**"/>
         <include name="initialize/**"/>
-        <include name="jar/**"/>   
-        <include name="log/**"/>         
+        <include name="jar/**"/>
+        <include name="log/**"/>
         <include name="properties/**"/>
-        <include name="repository/jboss/**"/>   
-        <include name="setup/**"/> 
+        <include name="repository/jboss/**"/>
+        <include name="setup/**"/>
         <include name="resources/**"/>
         <include name="silvertrace/**"/>
         <include name="xmlcomponents/**"/>
@@ -97,27 +99,28 @@
       </fileset>
     </pack>
     <pack name="H2" required="yes">
-      <description>Install H2 Database</description>      
+      <description>Install H2 Database</description>
       <fileset dir="package" targetdir="$INSTALL_PATH">
         <include name="h2/**"/>
       </fileset>
     </pack>
     <pack name="JBoss" required="yes">
-      <description>Install JBoss Application Server</description>      
+      <description>Install JBoss Application Server</description>
       <file src="package/jboss-6.1.0.Final.zip" targetdir="$INSTALL_PATH" unpack="true" />
     </pack>
     <pack name="Silverpeas Configuration Windows" required="yes" >
       <description>Prepare $APP_NAME $APP_VER</description>
-      <os family="windows" />    
-      <fileset dir="package/silverpeas-5.9.1" targetdir="$INSTALL_PATH">
+      <os family="windows" />
+      <fileset dir="package/silverpeas-5.12" targetdir="$INSTALL_PATH">
         <include name="bin/*.bat"/>
         <include name="bin/*.cmd"/>
         <exclude name="**/*.sh" />
       </fileset>
       <fileset dir="package/settings/windows" targetdir="$INSTALL_PATH/setup/settings" override="true">
         <include name="*.xml"/>
-         <include name="*.properties"/>
+        <include name="*.properties"/>
       </fileset>
+      <parsable targetfile="$INSTALL_PATH/setup/settings/CustomerSettings.xml" type="plain" encoding="UTF-8" />
       <parsable targetfile="$INSTALL_PATH/bin/SilverpeasSettings.bat" type="plain" encoding="UTF-8"  />
       <parsable targetfile="$INSTALL_PATH/bin/silverpeas_start_jboss.cmd" type="plain" encoding="UTF-8" />
       <parsable targetfile="$INSTALL_PATH/bin/start_db.bat" type="plain" encoding="UTF-8"/>
@@ -127,27 +130,28 @@
       <description>Prepare $APP_NAME $APP_VER</description>
       <os family="unix" />
       <os family="mac" />
-      <fileset dir="package/silverpeas-5.10.1" targetdir="$INSTALL_PATH">
+      <fileset dir="package/silverpeas-5.12" targetdir="$INSTALL_PATH">
         <include name="bin/*.sh"/>
         <exclude name="**/*.bat" />
         <exclude name="**/*.cmd" />
       </fileset>
       <fileset dir="package/settings/unix" targetdir="$INSTALL_PATH/setup/settings" override="true">
         <include name="*.xml"/>
-         <include name="*.properties"/>
-      </fileset>      
+        <include name="*.properties"/>
+      </fileset>
+      <parsable targetfile="$INSTALL_PATH/setup/settings/CustomerSettings.xml" type="plain" encoding="UTF-8" />
       <parsable targetfile="$INSTALL_PATH/bin/SilverpeasSettings.sh" type="plain" encoding="UTF-8" />
       <parsable targetfile="$INSTALL_PATH/bin/silverpeas_start_jboss.sh" type="plain" encoding="UTF-8" />
       <parsable targetfile="$INSTALL_PATH/bin/silverpeas_stop_jboss.sh" type="plain" encoding="UTF-8" />
       <parsable targetfile="$INSTALL_PATH/bin/start_db.sh" type="plain" encoding="UTF-8" />
       <parsable targetfile="$INSTALL_PATH/bin/stop_db.sh" type="plain" encoding="UTF-8"/>
-      
+
       <executable targetfile="$INSTALL_PATH/bin/stop_db.sh" stage="never"/>
       <executable targetfile="$INSTALL_PATH/bin/start_db.sh" stage="never"/>
       <executable targetfile="$INSTALL_PATH/bin/silverpeas_start_jboss.sh" stage="never"/>
       <executable targetfile="$INSTALL_PATH/bin/silverpeas_stop_jboss.sh" stage="never"/>
       <executable targetfile="$INSTALL_PATH/bin/SilverpeasSettings.sh" stage="never"/>
-      <executable targetfile="$INSTALL_PATH/jboss-6.1.0.Final/bin/run.sh" stage="never"/>      
+      <executable targetfile="$INSTALL_PATH/jboss-6.1.0.Final/bin/run.sh" stage="never"/>
     </pack>
   </packs>
 </installation>

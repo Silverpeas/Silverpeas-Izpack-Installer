@@ -6,17 +6,17 @@
   <parent>
     <groupId>com.silverpeas</groupId>
     <artifactId>parent</artifactId>
-    <version>22</version>
+    <version>25</version>
   </parent>
 
   <groupId>com.silverpeas</groupId>
   <artifactId>izpack-installer</artifactId>
-  <version>5.10.2</version>
+  <version>5.12</version>
   <name>Silverpeas Izpack Installer</name>
   <packaging>jar</packaging>
 
   <build>
-    <finalName>Silverpeas-${project.version}</finalName>
+    <finalName>Silverpeas-${project.version}-installer</finalName>
     <plugins>
       <plugin>
         <groupId>org.codehaus.izpack</groupId>
@@ -56,7 +56,7 @@
     </plugins>
   </build>
   <properties>
-    <izpack.version>5.0.0-beta10</izpack.version>
+    <izpack.version>5.0.0-beta11</izpack.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 </project>
