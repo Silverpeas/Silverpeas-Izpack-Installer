@@ -9,6 +9,7 @@ test $# -gt 0 && offline=""
 
 cd "$SILVERPEAS_HOME/bin"
 mvn clean install $offline
+cp $SCRIPTS_HOME/config.properties $SILVERPEAS_HOME/setup/setttings/.
 test $? -eq 0 && $SCRIPTS_HOME/appBuilder.sh
 test $? -eq 0 && $SCRIPTS_HOME/SilverpeasSettings.sh
 test $? -eq 0 && $SCRIPTS_HOME/start_db.sh &
