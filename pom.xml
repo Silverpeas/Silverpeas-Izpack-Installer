@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  
+
   <parent>
     <groupId>com.silverpeas</groupId>
     <artifactId>parent</artifactId>
@@ -11,7 +11,7 @@
 
   <groupId>com.silverpeas</groupId>
   <artifactId>izpack-installer</artifactId>
-  <version>5.12.1</version>
+  <version>5.12.2</version>
   <name>Silverpeas Izpack Installer</name>
   <packaging>jar</packaging>
 
@@ -40,17 +40,17 @@
             <groupId>com.github.insubstantial</groupId>
             <artifactId>substance</artifactId>
             <version>6.3</version>
-          </dependency>       
+          </dependency>
           <dependency>
             <groupId>com.github.insubstantial</groupId>
             <artifactId>trident</artifactId>
             <version>6.3</version>
-          </dependency>        
+          </dependency>
           <dependency>
             <groupId>com.jgoodies</groupId>
             <artifactId>looks</artifactId>
             <version>2.2.2</version>
-          </dependency>          
+          </dependency>
         </dependencies>
       </plugin>
     </plugins>

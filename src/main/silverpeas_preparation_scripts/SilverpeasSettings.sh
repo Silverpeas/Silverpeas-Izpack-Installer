@@ -1,11 +1,10 @@
 #!/bin/sh
 # -------- Active Settings ---------
-#export SILVERPEAS_HOME=export SILVERPEAS_HOME=/home/ehugonnet/silver-dev/tools/Silverpeas-Izpack-Installer/src/main/resources/package/silverpeas-5.12
 
-#test d'existance de la variable SILVERPEAS_HOME
+#test the SILVERPEAS_HOME environment variable is set
 if [ "x${SILVERPEAS_HOME}" = "x" -o "${SILVERPEAS_HOME}" = "" ];then
-  echo La variable SILVERPEAS_HOME doit etre initialisee
-  exit 1
+echo "The environment variable SILVERPEAS_HOME must be set!"
+exit 1
 fi
 
 SETUP_ROOT=$SILVERPEAS_HOME/setup/settings

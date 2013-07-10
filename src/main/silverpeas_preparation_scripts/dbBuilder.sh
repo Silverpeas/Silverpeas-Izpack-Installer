@@ -2,9 +2,9 @@
 # ------ dbBuilder -----------
 
 
-#test d'existance de la variable SILVERPEAS_HOME
+#test the SILVERPEAS_HOME environment variable is set
 if [ "x${SILVERPEAS_HOME}" = "x" -o "${SILVERPEAS_HOME}" = "" ];then
-echo La variable SILVERPEAS_HOME doit etre initialisee
+echo "The environment variable SILVERPEAS_HOME must be set!"
 exit 1
 fi
 
@@ -12,7 +12,7 @@ VERBOSEPARAM=-v
 ACTIONPARAM=-I
 
 SRV_SERVERTYPE=H2
-SILVERPEAS_DATA=/home/ehugonnet/silver-dev/tools/Silverpeas-Izpack-Installer/src/main/resources/package/silverpeas-5.12/
+SILVERPEAS_DATA=$SILVERPEAS_HOME/
 SILVERPEAS_PROPERTIES=$SILVERPEAS_HOME/properties
 
 LINEARGS="-T $SRV_SERVERTYPE $ACTIONPARAM $VERBOSEPARAM"

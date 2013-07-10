@@ -8,7 +8,7 @@
   -->
   <info>
     <appname>Silverpeas</appname>
-    <appversion>5.12.1</appversion>
+    <appversion>5.12.2</appversion>
     <url>http://www.silverpeas.org/</url>
     <authors></authors>
     <javaversion>1.6</javaversion>
@@ -89,6 +89,7 @@
         <include name="log/**"/>
         <include name="properties/**"/>
         <include name="repository/jboss/**"/>
+        <include name="repository/lib/**"/>
         <include name="setup/**"/>
         <include name="resources/**"/>
         <include name="silvertrace/**"/>
