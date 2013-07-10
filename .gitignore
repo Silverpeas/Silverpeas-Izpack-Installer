@@ -1,5 +1,6 @@
 target
 src/main/resources/package/silverpeas-*/bin/jar/
+src/main/resources/package/silverpeas-*/bin/scripts/
 src/main/resources/package/silverpeas-*/bin/target/
 src/main/resources/package/silverpeas-*/scripts/
 src/main/resources/package/silverpeas-*/META-INF/
