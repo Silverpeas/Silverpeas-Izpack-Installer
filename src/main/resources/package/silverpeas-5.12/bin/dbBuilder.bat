@@ -13,7 +13,9 @@ set LIB_ROOT=%SILVERPEAS_HOME%/bin/jar
 
 set CLASSPATH=%SILVERPEAS_HOME%\bin\jar\*
 
-${JDKPath}\bin\java -classpath "%CLASSPATH%" -Ddbbuilder.home="%SILVERPEAS_HOME%" -Ddbbuilder.data="%SILVERPEAS_DATA%" org.silverpeas.dbbuilder.DBBuilder %LINEARGS%
+set JAVA_HOME=${JDKPath}
+
+"%JAVA_HOME%\bin\java" -classpath "%CLASSPATH%" -Ddbbuilder.home="%SILVERPEAS_HOME%" -Ddbbuilder.data="%SILVERPEAS_DATA%" org.silverpeas.dbbuilder.DBBuilder %LINEARGS%
 
 echo.
 

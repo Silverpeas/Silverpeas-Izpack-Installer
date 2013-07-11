@@ -7,4 +7,4 @@ set JAVA_HOME=${JDKPath}
 set SETUP_ROOT=%SILVERPEAS_HOME%/setup/settings
 set CLASSPATH=%SILVERPEAS_HOME%\bin\jar\*
 
-%JAVA_HOME%\bin\java -classpath "%CLASSPATH%" -Dsilverpeas.home="%SILVERPEAS_HOME%" org.silverpeas.settings.SilverpeasSettings
+"%JAVA_HOME%\bin\java" -classpath "%CLASSPATH%" -Dsilverpeas.home="%SILVERPEAS_HOME%" org.silverpeas.settings.SilverpeasSettings
