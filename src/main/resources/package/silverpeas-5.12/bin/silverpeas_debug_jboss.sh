@@ -1,5 +1,9 @@
 #!/bin/sh
-# ------ silverpeas_start_jboss.sh -----------
+# ------ silverpeas_debug_jboss.sh -----------
+export SILVERPEAS_HOME=${INSTALL_PATH}
+export JBOSS_HOME=${INSTALL_PATH}/jboss-6.1.0.Final/
+export JAVA_HOME=${JDKPath}
+
 cd $JBOSS_HOME/bin
 
 HEAP_SIZE=

@@ -25,12 +25,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 <silverpeas-settings product="Configuration_Default_Lang">
   <fileset root="${SILVERPEAS_HOME}/properties/org/silverpeas/util/">
     <configfile name="i18n.properties">
-      <parameter key="languages">${ISO3_LANG}</parameter>
+      <parameter key="languages">${ISO2_LANG}</parameter>
     </configfile>
   </fileset>
   <fileset root="${SILVERPEAS_HOME}/properties/org/silverpeas/personalizationPeas/settings/">
     <configfile name="personalizationPeasSettings.properties">
-      <parameter key="DefaultLanguage">${ISO3_LANG}</parameter>
+      <parameter key="DefaultLanguage">${ISO2_LANG}</parameter>
     </configfile>
   </fileset>
 </silverpeas-settings>

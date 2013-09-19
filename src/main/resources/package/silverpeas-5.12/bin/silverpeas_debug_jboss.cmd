@@ -1,5 +1,9 @@
 @echo off
 
+set SILVERPEAS_HOME=${INSTALL_PATH}
+set JBOSS_HOME=${INSTALL_PATH}\jboss-6.1.0.Final
+set JAVA_HOME=${JDKPath}
+
 cd /d "%JBOSS_HOME%\server\default\deploy\silverpeas"
 del silverpeas.ear.bak*
 del silverpeas-ds.xml.bak*

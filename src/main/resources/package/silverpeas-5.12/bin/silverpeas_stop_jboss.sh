@@ -6,7 +6,7 @@ export JAVA_HOME=${JDKPath}
 
 cd $JBOSS_HOME/bin
 
-username=vtkxeotnm
-password=008a3948-219a-4983-927a-68767f079fec
+username=bmegukldl
+password=5e7e3440-36bd-42a2-99f6-1feda6a7dc73
 
 sh shutdown.sh -u $username -p $password -S
