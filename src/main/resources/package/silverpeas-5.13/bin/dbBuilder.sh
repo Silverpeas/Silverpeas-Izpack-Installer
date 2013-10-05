@@ -11,7 +11,7 @@ VERBOSEPARAM=-v
 ACTIONPARAM=-I
 
 SRV_SERVERTYPE=H2
-SILVERPEAS_DATA=/home/mmoquillon/Projets/silverpeas-integration/Silverpeas-Izpack-Installer/src/main/silverpeas_preparation_scripts/../resources/package/silverpeas-5.12
+SILVERPEAS_DATA=/home/mmoquillon/Projets/silverpeas-integration/Silverpeas-Izpack-Installer/src/main/silverpeas_preparation_scripts/../resources/package/silverpeas-5.13
 SILVERPEAS_PROPERTIES=$SILVERPEAS_HOME/properties
 
 LINEARGS="-T $SRV_SERVERTYPE $ACTIONPARAM $VERBOSEPARAM"

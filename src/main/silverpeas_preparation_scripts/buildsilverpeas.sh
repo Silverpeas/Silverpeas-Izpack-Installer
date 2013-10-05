@@ -27,7 +27,9 @@ test $# -gt 0 && offline=""
 echo "Get Silverpeas ${SILVERPEAS_VERSION}"
 wget http://www.silverpeas.org/files/silverpeas-${SILVERPEAS_VERSION}-jboss6.tar.gz
 test $? -eq 0 && tar zxvf silverpeas-${SILVERPEAS_VERSION}-jboss6.tar.gz
-test $? -eq 0 && cp -r silverpeas-${SILVERPEAS_VERSION}*-jboss6/bin/jar silverpeas-${SILVERPEAS_VERSION}*-jboss6/bin/scripts $SILVERPEAS_HOME/bin
+test $? -eq 0 && cp -r silverpeas-${SILVERPEAS_VERSION}*-jboss6/bin/pom.xml silverpeas-${SILVERPEAS_VERSION}*-jboss6/bin/jar silverpeas-${SILVERPEAS_VERSION}*-jboss6/bin/scripts $SILVERPEAS_HOME/bin
+rm -rf $SILVERPEAS_HOME/setup/appserver/jboss6
+cp -r silverpeas-${SILVERPEAS_VERSION}*-jboss6/setup/appserver/jboss6 $SILVERPEAS_HOME/setup/appserver
 test $? -eq 0 && rm -rf silverpeas-${SILVERPEAS_VERSION}*-jboss6*
 status=$?
 test $status -eq 0 || exit $status
