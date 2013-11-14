@@ -8,7 +8,7 @@
   -->
   <info>
     <appname>Silverpeas</appname>
-    <appversion>5.13</appversion>
+    <appversion>5.13.1</appversion>
     <url>http://www.silverpeas.org/</url>
     <authors></authors>
     <javaversion>1.6</javaversion>
@@ -124,6 +124,7 @@
       <parsable targetfile="$INSTALL_PATH/setup/settings/CustomerSettings.xml" type="plain" encoding="UTF-8" />
       <parsable targetfile="$INSTALL_PATH/bin/SilverpeasSettings.bat" type="plain" encoding="UTF-8"  />
       <parsable targetfile="$INSTALL_PATH/bin/silverpeas_start_jboss.cmd" type="plain" encoding="UTF-8" />
+      <parsable targetfile="$INSTALL_PATH/bin/silverpeas_stop_jboss.cmd" type="plain" encoding="UTF-8" />
       <parsable targetfile="$INSTALL_PATH/bin/start_db.bat" type="plain" encoding="UTF-8"/>
       <parsable targetfile="$INSTALL_PATH/bin/stop_db.bat" type="plain" encoding="UTF-8" />
     </pack>
