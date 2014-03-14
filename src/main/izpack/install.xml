@@ -8,9 +8,9 @@
   -->
   <info>
     <appname>Silverpeas</appname>
-    <appversion>5.13.1</appversion>
+    <appversion>5.14</appversion>
     <url>http://www.silverpeas.org/</url>
-    <authors></authors>
+    <authors>Silverpeas</authors>
     <javaversion>1.6</javaversion>
   </info>
 
@@ -80,7 +80,7 @@
   <packs>
     <pack name="Silverpeas" required="yes">
       <description>Install $APP_NAME $APP_VER</description>
-      <fileset dir="package/silverpeas-5.13" targetdir="$INSTALL_PATH">
+      <fileset dir="package/silverpeas-5.14" targetdir="$INSTALL_PATH">
         <include name="bin/**" />
         <include name="data/**"/>
         <include name="dbRepository/**"/>
@@ -89,6 +89,7 @@
         <include name="log/**"/>
         <include name="properties/**"/>
         <include name="repository/jboss/**"/>
+        <include name="repository/java/**"/>
         <include name="repository/lib/**"/>
         <include name="setup/**"/>
         <include name="resources/**"/>
@@ -112,10 +113,10 @@
     <pack name="Silverpeas Configuration Windows" required="yes" >
       <description>Prepare $APP_NAME $APP_VER</description>
       <os family="windows" />
-      <fileset dir="package/silverpeas-5.13" targetdir="$INSTALL_PATH">
-        <include name="bin/*.bat"/>
-        <include name="bin/*.cmd"/>
-        <exclude name="**/*.sh" />
+      <fileset dir="package/binaries" targetdir="$INSTALL_PATH/bin">
+        <include name="*.bat"/>
+        <include name="*.cmd"/>
+        <exclude name="*.sh" />
       </fileset>
       <fileset dir="package/settings/windows" targetdir="$INSTALL_PATH/setup/settings" override="true">
         <include name="*.xml"/>
@@ -132,10 +133,10 @@
       <description>Prepare $APP_NAME $APP_VER</description>
       <os family="unix" />
       <os family="mac" />
-      <fileset dir="package/silverpeas-5.13" targetdir="$INSTALL_PATH">
-        <include name="bin/*.sh"/>
-        <exclude name="**/*.bat" />
-        <exclude name="**/*.cmd" />
+      <fileset dir="package/binaries" targetdir="$INSTALL_PATH/bin">
+        <include name="*.sh"/>
+        <exclude name="*.bat" />
+        <exclude name="*.cmd" />
       </fileset>
       <fileset dir="package/settings/unix" targetdir="$INSTALL_PATH/setup/settings" override="true">
         <include name="*.xml"/>

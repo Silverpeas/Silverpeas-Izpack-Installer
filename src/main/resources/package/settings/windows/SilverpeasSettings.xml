@@ -49,7 +49,7 @@
   
   <script name="setupSilverpeas.groovy"/>
   <script name="updateJCRWorkspaceConfig.groovy"/>
-   <script name="configureJCRMigrationConfig.groovy"/>
+  <script name="configureJCRMigrationConfig.groovy"/>
 
   <!-- PROPERTIES CONFIGURATION -->
   <fileset root="${SILVERPEAS_HOME}/initialize/">
@@ -205,10 +205,6 @@
 
     <configfile name="questionReply/settings/questionReplySettings.properties">
       <parameter key="mappingDir">file:///${SILVERPEAS_HOME}/resources/QuestionReply/</parameter>
-    </configfile>
-
-    <configfile name="publicationTemplate/settings/mapping.properties">
-      <parameter key="mappingDir">file:///${SILVERPEAS_HOME}/resources/formTemplate/</parameter>
     </configfile>
 
     <configfile name="publicationTemplate/settings/template.properties">
