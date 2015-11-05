@@ -1,4 +1,5 @@
 target
+src/main/resources/package/h2
 src/main/resources/package/silverpeas-*
 src/main/resources/package/silverpeas-*/bin/jar/
 src/main/resources/package/silverpeas-*/bin/scripts/
@@ -17,4 +18,3 @@ src/main/resources/package/silverpeas-*/silvertrace/
 src/main/resources/package/silverpeas-*/xmlcomponents/
 src/main/resources/package/settings/unix/*
 src/main/resources/package/settings/windows/*
-src/main/resources/package/h2/*
