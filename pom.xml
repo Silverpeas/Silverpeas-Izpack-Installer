@@ -6,12 +6,12 @@
   <parent>
     <groupId>com.silverpeas</groupId>
     <artifactId>parent</artifactId>
-    <version>27</version>
+    <version>28</version>
   </parent>
 
   <groupId>com.silverpeas</groupId>
   <artifactId>izpack-installer</artifactId>
-  <version>5.14</version>
+  <version>5.15</version>
   <name>Silverpeas Izpack Installer</name>
   <packaging>jar</packaging>
 
