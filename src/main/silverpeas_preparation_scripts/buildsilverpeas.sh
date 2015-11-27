@@ -18,21 +18,22 @@ test "${MINOR_VERSION}" != "" && MAIN_VERSION=${SILVERPEAS_VERSION%??}
 
 cd `dirname $0`
 SCRIPTS_HOME=$PWD
-SETTINGS="${SCRIPTS_HOME}/../resources/package/settings"
+PACKAGE_DIR="${SCRIPTS_HOME}/../resources/package"
+SETTINGS="${PACKAGE_DIR}/settings"
 UNIX_SETTINGS="${SETTINGS}/unix"
 WINDOWS_SETTINGS="${SETTINGS}/windows"
-export SILVERPEAS_HOME="${SCRIPTS_HOME}/../resources/package/silverpeas-${MAIN_VERSION}"
+export SILVERPEAS_HOME="${PACKAGE_DIR}/silverpeas-${MAIN_VERSION}"
 export JBOSS_HOME="${SCRIPTS_HOME}/jboss-6.1.0.Final"
 
 offline="-o"
 test $# -gt 0 && offline=""
 
 echo "  -> unzip JBoss distribution..."
-unzip "${SCRIPTS_HOME}/../resources/package/jboss-6.1.0.Final.zip" -d "${SCRIPTS_HOME}"
+unzip "${PACKAGE_DIR}/jboss-6.1.0.Final.zip" -d "${SCRIPTS_HOME}"
 
 echo "  -> get Silverpeas ${SILVERPEAS_VERSION} for both Unix and Windows..."
-rm -rf ${SILVERPEAS_HOME}/../silverpeas-*
-rm ${SILVERPEAS_HOME}/../h2/*
+rm -rf ${PACKAGE_DIR}/silverpeas-*
+rm -f ${PACKAGE_DIR}/h2/*
 pushd ${UNIX_SETTINGS}
 rm *
 wget -c https://github.com/Silverpeas/Silverpeas-installer-package/raw/installation-${SILVERPEAS_VERSION}/src/main/config/settings/jboss6/linux/JBossSettings.xml
@@ -57,7 +58,7 @@ cp ${SETTINGS}/CustomerSettings.xml ${SETTINGS}/config.properties ${WINDOWS_SETT
 cp ${SETTINGS}/CustomerSettings.xml ${SETTINGS}/config.properties ${UNIX_SETTINGS}/
 
 echo "  -> build Silverpeas..."
-mkdir -p "${SCRIPTS_HOME}/../resources/package/h2" &> /dev/null
+mkdir -p "${PACKAGE_DIR}/h2" &> /dev/null
 cd "${SILVERPEAS_HOME}/bin"
 mvn clean install ${offline}
 test $? -eq 0 && ${SCRIPTS_HOME}/appBuilder.sh
