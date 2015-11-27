@@ -2,7 +2,7 @@
 # ------ silverpeas_start_jboss.sh -----------
 export SILVERPEAS_HOME=${INSTALL_PATH}
 export JBOSS_HOME=${INSTALL_PATH}/jboss-6.1.0.Final/
-export JAVA_HOME=${JDKPath}
+export JAVA_HOME=${jdkPath}
 
 cd $JBOSS_HOME/bin
 

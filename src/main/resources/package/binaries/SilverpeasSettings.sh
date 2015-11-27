@@ -18,5 +18,5 @@ done
 export CLASSPATH
 
 
-exec ${JDKPath}/bin/java -classpath $CLASSPATH -Dsilverpeas.home=$SILVERPEAS_HOME org.silverpeas.settings.SilverpeasSettings
+exec ${jdkPath}/bin/java -classpath $CLASSPATH -Dsilverpeas.home=$SILVERPEAS_HOME org.silverpeas.settings.SilverpeasSettings
 

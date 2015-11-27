@@ -8,10 +8,11 @@
   -->
   <info>
     <appname>Silverpeas</appname>
-    <appversion>5.14</appversion>
+    <appversion>@{silverpeas.version}</appversion>
     <url>http://www.silverpeas.org/</url>
     <authors>Silverpeas</authors>
     <javaversion>1.6</javaversion>
+    <requiresjdk>yes</requiresjdk>
   </info>
 
   <guiprefs width="800" height="600" resizable="no">
@@ -40,6 +41,7 @@
     <variable name="JDKPathPanel.skipIfValid" value="no"/>
     <variable name="TargetPanel.dir.unix" value="~/Silverpeas"/>
     <variable name="TargetPanel.dir.windows" value="C:\Silverpeas"/>
+    <variable name="SILVERPEAS_DIR" value="package/silverpeas-@{silverpeas.version}"/>
   </variables>
 
   <locale>
@@ -61,13 +63,15 @@
     <res id="HTMLInfoPanel.instructions_eng" src="html/instructions_unix_eng.html" parse="yes" type="plain" encoding="UTF-8" os="mac"/>
     <res id="LicencePanel.licence" src="license.txt"/>
     <res id="ProcessPanel.Spec.xml" src="postprocess.xml" />
+    <res id="CustomLangPack.xml_fra" src="i18n/CustomLangPack.xml_fra"/>
+    <res id="CustomLangPack.xml_eng" src="i18n/CustomLangPack.xml_eng"/>
     <res id="intranet" src="images/schemaMailing_mid.jpg" />
   </resources>
 
   <panels>
     <panel classname="HelloPanel" />
     <panel classname="HTMLInfoPanel" id="introduction" />
-    <panel classname="JDKPathPanel" id="jdk" />
+    <panel classname="JDKPathPanel" />
     <panel classname="TargetPanel" id="dir.windows" ShowCreateDirectoryMessage="false" />
     <panel classname="PacksPanel" />
     <panel classname="SummaryPanel" />
@@ -80,7 +84,7 @@
   <packs>
     <pack name="Silverpeas" required="yes">
       <description>Install $APP_NAME $APP_VER</description>
-      <fileset dir="package/silverpeas-5.14" targetdir="$INSTALL_PATH">
+      <fileset dir="$SILVERPEAS_DIR" targetdir="$INSTALL_PATH">
         <include name="bin/**" />
         <include name="data/**"/>
         <include name="dbRepository/**"/>
