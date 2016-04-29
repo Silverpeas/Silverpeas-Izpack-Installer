@@ -4,17 +4,29 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>com.silverpeas</groupId>
-    <artifactId>parent</artifactId>
-    <version>28</version>
+    <groupId>org.silverpeas</groupId>
+    <artifactId>silverpeas-project</artifactId>
+    <version>1-SNAPSHOT</version>
   </parent>
 
-  <groupId>com.silverpeas</groupId>
+  <groupId>org.silverpeas</groupId>
   <artifactId>izpack-installer</artifactId>
-  <version>5.15</version>
+  <version>6.0-SNAPSHOT</version>
   <name>Silverpeas Izpack Installer</name>
   <packaging>jar</packaging>
 
+  <dependencies>
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-model</artifactId>
+      <version>3.0.5</version>
+    </dependency>
+    <dependency>
+      <groupId>org.codehaus.groovy</groupId>
+      <artifactId>groovy-all</artifactId>
+      <version>2.4.6</version>
+    </dependency>
+  </dependencies>
   <build>
     <finalName>Silverpeas-${project.version}-installer</finalName>
     <plugins>
@@ -39,12 +51,12 @@
           <dependency>
             <groupId>com.github.insubstantial</groupId>
             <artifactId>substance</artifactId>
-            <version>6.3</version>
+            <version>7.3</version>
           </dependency>
           <dependency>
             <groupId>com.github.insubstantial</groupId>
             <artifactId>trident</artifactId>
-            <version>6.3</version>
+            <version>7.3</version>
           </dependency>
           <dependency>
             <groupId>com.jgoodies</groupId>
@@ -53,11 +65,28 @@
           </dependency>
         </dependencies>
       </plugin>
+      <plugin>
+        <groupId>org.codehaus.groovy.maven</groupId>
+        <artifactId>gmaven-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>prepare-silverpeas</id>
+            <phase>prepare-package</phase>
+            <goals>
+              <goal>execute</goal>
+            </goals>
+            <configuration>
+              <source>${basedir}/src/main/groovy/SilverpeasPreparation.groovy</source>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
   </build>
   <properties>
     <izpack.version>5.0.6</izpack.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <silverpeas.version>${project.version}</silverpeas.version>
+    <wildfly.version>10.0.0</wildfly.version>
   </properties>
 </project>

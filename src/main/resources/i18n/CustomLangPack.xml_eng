@@ -2,6 +2,6 @@
 <izpack:langpack version="5.0" xmlns:izpack="http://izpack.org/schema/langpack" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://izpack.org/schema/langpack http://izpack.org/schema/5.0/izpack-langpack-5.0.xsd">
     <str id="JDKPathPanel.jdkDownload"
          txt="&lt;html&gt;&lt;p&gt;This software requires at least version ${JDKPathPanel.minVersion} of the Java Development Kit (JDK).&lt;p/&gt;
-         If it is not installed, please go to &lt;a href='http://www.oracle.com/technetwork/java/javase/downloads/java-archive-downloads-javase6-419409.html#jdk-6u45-oth-JPR'&gt;http://www.oracle.com/technetwork/java/javase/downloads/java-archive-downloads-javase6-419409.html#jdk-6u45-oth-JPR&lt;/a&gt;,
+         If it is not installed, please go to &lt;a href='http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html'&gt;http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html&lt;/a&gt;,
          to download and install it.&lt;/html&gt;"/>
 </izpack:langpack>

@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <processing>
-  <job name="Silverpeas Settings">
+  <job name="Silverpeas Installation">
     <os family="windows" />
-    <executefile name="$INSTALL_PATH/bin/SilverpeasSettings.bat" />
+    <executefile name="$INSTALL_PATH/bin/silverpeas.bat">
+        <arg>install</arg>
+    </executefile>
   </job>
-  <job name="Silverpeas Settings">
+  <job name="Silverpeas Installation">
     <os family="unix" />
     <os family="mac" />
-    <executefile name="$INSTALL_PATH/bin/SilverpeasSettings.sh" />
+    <executefile name="$INSTALL_PATH/bin/silverpeas">
+        <arg>install</arg>
+    </executefile>
   </job>
 </processing>
