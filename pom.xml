@@ -11,7 +11,7 @@
 
   <groupId>org.silverpeas</groupId>
   <artifactId>izpack-installer</artifactId>
-  <version>6.0-alpha1</version>
+  <version>6.0-alpha2</version>
   <name>Silverpeas Izpack Installer</name>
   <packaging>jar</packaging>
 
@@ -87,6 +87,6 @@
     <izpack.version>5.0.6</izpack.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <silverpeas.version>${project.version}</silverpeas.version>
-    <wildfly.version>10.0.0</wildfly.version>
+    <wildfly.version>10.1.0</wildfly.version>
   </properties>
 </project>
