@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
-<installation version="5.0" xmlns="http://izpack.org/schema/installation"
-              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-              xsi:schemaLocation="http://izpack.org/schema/installation http://izpack.org/schema/installation/izpack-installation-5.0.xsd">
+<izpack:installation version="5.0"
+                     xmlns:izpack="http://izpack.org/schema/installation"
+                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                     xsi:schemaLocation="http://izpack.org/schema/installation http://izpack.org/schema/5.0/izpack-installation-5.0.xsd">
   <!--
     Ant properties in this file can be referenced with @{}, otherwise use
     variables below in installer files with ${}
@@ -10,21 +11,25 @@
     <appname>Silverpeas</appname>
     <appversion>@{silverpeas.version}</appversion>
     <url>http://www.silverpeas.org/</url>
-    <authors>Silverpeas</authors>
+    <authors>
+      <author name="Silverpeas" email="devteam@silverpeas.org"/>
+    </authors>
     <javaversion>1.8</javaversion>
     <requiresjdk>yes</requiresjdk>
   </info>
 
   <guiprefs width="800" height="600" resizable="no">
     <splash>images/peas_load.gif</splash>
-    <!--
     <laf name="substance">
       <os family="mac" />
       <os family="windows" />
       <os family="unix" />
       <param name="variant" value="mist-silver" />
     </laf>
-    -->
+    <laf name="substance">
+      <os family="mac" />
+      <param name="variant" value="mist-aqua" />
+    </laf>
     <modifier key="useHeadingPanel" value="yes" />
     <modifier key="useHeadingForSummary" value="yes" />
     <modifier key="headingImageOnLeft" value="yes" />
@@ -37,7 +42,7 @@
 
   <variables>
     <variable name="JDKPathPanel.minVersion" value="1.8"/>
-    <variable name="JDKPathPanel.maxVersion" value="1.8.0_99"/>
+    <variable name="JDKPathPanel.maxVersion" value="1.8.0_500"/>
     <variable name="JDKPathPanel.skipIfValid" value="no"/>
     <variable name="TargetPanel.dir.unix" value="~/Silverpeas"/>
     <variable name="TargetPanel.dir.windows" value="C:\Silverpeas"/>
@@ -55,12 +60,8 @@
     <res id="Heading.image" src="images/logo.png" />
     <res id="HTMLInfoPanel.introduction_fra" src="html/readme_fra.html" parse="no"/>
     <res id="HTMLInfoPanel.introduction_eng" src="html/readme_eng.html" parse="no"/>
-    <res id="HTMLInfoPanel.instructions_fra" src="html/instructions_windows_fra.html" parse="yes" type="plain" encoding="UTF-8" os="windows"/>
-    <res id="HTMLInfoPanel.instructions_fra" src="html/instructions_unix_fra.html" parse="yes" type="plain" encoding="UTF-8" os="unix"/>
-    <res id="HTMLInfoPanel.instructions_fra" src="html/instructions_unix_fra.html" parse="yes" type="plain" encoding="UTF-8" os="mac"/>
-    <res id="HTMLInfoPanel.instructions_eng" src="html/instructions_windows_eng.html" parse="yes" type="plain" encoding="UTF-8" os="windows"/>
-    <res id="HTMLInfoPanel.instructions_eng" src="html/instructions_unix_eng.html" parse="yes" type="plain" encoding="UTF-8" os="unix"/>
-    <res id="HTMLInfoPanel.instructions_eng" src="html/instructions_unix_eng.html" parse="yes" type="plain" encoding="UTF-8" os="mac"/>
+    <res id="HTMLInfoPanel.instructions_fra" src="html/instructions_fra.html" parse="yes" type="plain"/>
+    <res id="HTMLInfoPanel.instructions_eng" src="html/instructions_eng.html" parse="yes" type="plain"/>
     <res id="LicencePanel.licence" src="license.txt"/>
     <res id="ProcessPanel.Spec.xml" src="postprocess.xml" />
     <res id="CustomLangPack.xml_fra" src="i18n/CustomLangPack.xml_fra"/>
@@ -72,7 +73,11 @@
     <panel classname="HelloPanel" />
     <panel classname="HTMLInfoPanel" id="introduction" />
     <panel classname="JDKPathPanel" />
-    <panel classname="TargetPanel" id="dir.windows" ShowCreateDirectoryMessage="false" />
+    <panel classname="TargetPanel" id="dir.windows">
+      <configuration>
+        <ShowCreateDirectoryMessage>false</ShowCreateDirectoryMessage>
+      </configuration>
+    </panel>
     <panel classname="PacksPanel" />
     <panel classname="SummaryPanel" />
     <panel classname="InstallPanel" />
@@ -85,11 +90,11 @@
     <pack name="Silverpeas" required="yes">
       <description>Install $APP_NAME $APP_VER</description>
       <fileset dir="$SILVERPEAS_DIR" targetdir="$INSTALL_PATH"/>
-      <fileset dir="package/gradle" targetdir="$USER_HOME/.gradle"/>
+      <fileset dir="package/gradle" targetdir="$USER_HOME/.gradle" override="true"/>
     </pack>
     <pack name="Silverpeas Configuration" required="yes" >
       <description>Prepare $APP_NAME $APP_VER</description>
-      <fileset dir="package/bin" targetdir="$INSTALL_PATH/bin"/>
+      <fileset dir="package/bin" targetdir="$INSTALL_PATH/bin" override="true"/>
       <fileset dir="package/configuration" targetdir="$INSTALL_PATH/configuration" override="true"/>
       <parsable targetfile="$INSTALL_PATH/bin/silverpeas.bat" type="plain" encoding="UTF-8"  />
       <parsable targetfile="$INSTALL_PATH/bin/silverpeas" type="plain" encoding="UTF-8" />
@@ -99,4 +104,4 @@
       <executable targetfile="$INSTALL_PATH/wildfly/bin/jboss-cli.sh" stage="never"/>
     </pack>
   </packs>
-</installation>
+</izpack:installation>

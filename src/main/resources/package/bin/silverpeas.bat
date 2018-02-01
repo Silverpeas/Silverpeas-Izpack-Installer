@@ -18,11 +18,12 @@ set DEFAULT_JVM_OPTS=
 set SILVERPEAS_HOME=${INSTALL_PATH}
 set JBOSS_HOME=${INSTALL_PATH}\wildfly
 set JAVA_HOME=${jdkPath}
+set H2_JAR=%JBOSS_HOME%\modules\system\layers\base\com\h2database\h2\main\h2-1.3.173.jar
+set APP_HOME=${INSTALL_PATH}\bin
+set APP_BASE_NAME=Silverpeas
 
-set DIRNAME=%~dp0
-if "%DIRNAME%" == "" set DIRNAME=.
-set APP_BASE_NAME=%~n0
-set APP_HOME=%DIRNAME%
+@rem Add default JVM options here. You can also use JAVA_OPTS and GRADLE_OPTS to pass JVM options to this script.
+set DEFAULT_JVM_OPTS=
 
 @rem Find java.exe
 if defined JAVA_HOME goto findJavaFromJavaHome
@@ -54,10 +55,9 @@ echo location of your Java installation.
 goto fail
 
 :init
-@rem Get command-line arguments, handling Windowz variants
+@rem Get command-line arguments, handling Windows variants
 
 if not "%OS%" == "Windows_NT" goto win9xME_args
-if "%@eval[2+2]" == "4" goto 4NT_args
 
 :win9xME_args
 @rem Slurp the command line arguments.
@@ -68,19 +68,39 @@ set _SKIP=2
 if "x%~1" == "x" goto execute
 
 set CMD_LINE_ARGS=%*
-goto execute
-
-:4NT_args
-@rem Get arguments from the 4NT Shell from JP Software
-set CMD_LINE_ARGS=%$
 
 :execute
 @rem Setup the command line
-cd %APP_HOME%
+
 set CLASSPATH=%APP_HOME%\gradle\wrapper\gradle-wrapper.jar
+
+@rem Start H2 database
+set stopAfter=0
+for %%O in (%CMD_LINE_ARGS%) do (
+  if "%%O" == "start" (
+    echo Start H2 database...
+    start /b "" "%JAVA_EXE%" -classpath "%H2_JAR%" org.h2.tools.Server -tcp -baseDir "%SILVERPEAS_HOME%\h2"
+  ) else if "%%O" == "stop" (
+    set stopAfter=1
+  ) else if "%%O" == "migration" (
+    echo Start H2 database for DB migration....
+    start /b "" "%JAVA_EXE%" -classpath "%H2_JAR%" org.h2.tools.Server -tcp -baseDir "%SILVERPEAS_HOME%\h2"
+    set stopAfter=1
+  ) else if "%%O" == "install" (
+    echo Start H2 database for DB migration....
+    start /b "" "%JAVA_EXE%" -classpath "%H2_JAR%" org.h2.tools.Server -tcp -baseDir "%SILVERPEAS_HOME%\h2"
+    set stopAfter=1
+  )
+)
 
 @rem Execute Gradle
 "%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %GRADLE_OPTS% "-Dorg.gradle.appname=%APP_BASE_NAME%" -classpath "%CLASSPATH%" org.gradle.wrapper.GradleWrapperMain --no-daemon %CMD_LINE_ARGS%
+
+@rem Stop H2 database
+if %stopAfter% == 1 (
+  echo Stop H2 database...
+  call "%JAVA_EXE%" -classpath "%H2_JAR%" org.h2.tools.Server -tcpShutdown tcp://localhost:9092
+)
 
 :end
 @rem End local scope for the variables with windows NT shell

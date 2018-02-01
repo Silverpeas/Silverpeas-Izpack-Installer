@@ -13,12 +13,13 @@ export NOPAUSE=1
 DEFAULT_JVM_OPTS=""
 
 APP_NAME="Gradle"
-APP_BASE_NAME=`basename "$0"`
+APP_BASE_NAME="Silverpeas"
 
 # Set SILVERPEAS_HOME, JBOSS_HOME and JAVA_HOME
 export SILVERPEAS_HOME=${INSTALL_PATH}
 export JBOSS_HOME=${INSTALL_PATH}/wildfly
 export JAVA_HOME=${jdkPath}
+H2_JAR=${JBOSS_HOME}/modules/system/layers/base/com/h2database/h2/main/h2-1.3.173.jar
 
 # Use the maximum available, or set MAX_FD != -1 to use that value.
 MAX_FD="maximum"
@@ -38,6 +39,7 @@ die ( ) {
 cygwin=false
 msys=false
 darwin=false
+nonstop=false
 case "`uname`" in
   CYGWIN* )
     cygwin=true
@@ -47,6 +49,9 @@ case "`uname`" in
     ;;
   MINGW* )
     msys=true
+    ;;
+  NONSTOP* )
+    nonstop=true
     ;;
 esac
 
@@ -94,7 +99,7 @@ location of your Java installation."
 fi
 
 # Increase the maximum file descriptors if we can.
-if [ "$cygwin" = "false" -a "$darwin" = "false" ] ; then
+if [ "$cygwin" = "false" -a "$darwin" = "false" -a "$nonstop" = "false" ] ; then
     MAX_FD_LIMIT=`ulimit -H -n`
     if [ $? -eq 0 ] ; then
         if [ "$MAX_FD" = "maximum" -o "$MAX_FD" = "max" ] ; then
@@ -159,11 +164,42 @@ if $cygwin ; then
     esac
 fi
 
-# Split up the JVM_OPTS And GRADLE_OPTS values into an array, following the shell quoting and substitution rules
-function splitJvmOpts() {
-    JVM_OPTS=("$@")
+# Escape application args
+save ( ) {
+    for i do printf %s\\n "$i" | sed "s/'/'\\\\''/g;1s/^/'/;\$s/\$/' \\\\/" ; done
+    echo " "
 }
-eval splitJvmOpts $DEFAULT_JVM_OPTS $JAVA_OPTS $GRADLE_OPTS
-JVM_OPTS[${#JVM_OPTS[*]}]="-Dorg.gradle.appname=$APP_BASE_NAME"
+APP_ARGS=$(save "$@")
 
-exec "$JAVACMD" "${JVM_OPTS[@]}" -classpath "$CLASSPATH" org.gradle.wrapper.GradleWrapperMain --no-daemon "$@"
+# Collect all arguments for the java command, following the shell quoting and substitution rules
+eval set -- $DEFAULT_JVM_OPTS $JAVA_OPTS $GRADLE_OPTS "\"-Dorg.gradle.appname=$APP_BASE_NAME\"" -classpath "\"$CLASSPATH\"" org.gradle.wrapper.GradleWrapperMain --no-daemon "$APP_ARGS"
+
+# by default we should be in the correct project dir, but when run from Finder on Mac, the cwd is wrong
+if [ "$(uname)" = "Darwin" ] && [ "$HOME" = "$PWD" ]; then
+  cd "$(dirname "$0")"
+fi
+
+stopAfter=0
+for arg in "$@" ; do
+  case $arg in
+    start)
+      echo "Start H2 database..."
+      exec "$JAVACMD" -classpath "$H2_JAR" org.h2.tools.Server -tcp -baseDir "$SILVERPEAS_HOME/h2" &
+      ;;
+    stop)
+      stopAfter=1
+      ;;
+    migration|install)
+      echo "Start H2 database for DB migration...."
+      stopAfter=1
+      exec "$JAVACMD" -classpath "$H2_JAR" org.h2.tools.Server -tcp -baseDir "$SILVERPEAS_HOME/h2" &
+      ;;
+   esac
+done
+
+"$JAVACMD" "$@"
+
+if [ $stopAfter -eq 1 ]; then
+  echo "Stop H2 database..."
+  exec "$JAVACMD" -classpath "$H2_JAR" org.h2.tools.Server -tcpShutdown tcp://localhost:9092
+fi

@@ -1,6 +1,4 @@
 import org.codehaus.plexus.util.FileUtils
-
-import java.nio.file.Files
 import java.nio.file.Path
 import java.nio.file.Paths
 
@@ -32,17 +30,17 @@ if (! new File("${project.build.directory}/${wildfly}.zip").exists()) {
 }
 
 // assemble Silverpeas
-Path gradleUserPath;
+Path gradleUserPath
 if (System.properties['os.name'].toLowerCase().contains('windows')) {
   gradleUserPath = Paths.get(System.getenv("USERPROFILE"), '.gradle')
-  FileUtils.deleteDirectory(gradleUserPath.toFile())
+  FileUtils.deleteDirectory(gradleUserPath.toString())
   ant.exec(executable: "${project.build.outputDirectory}/package/silverpeas/bin/silverpeas.bat",
       osfamily: 'windows') {
     arg(value: 'assemble')
   }
 } else {
   gradleUserPath = Paths.get(System.getenv("HOME"), '.gradle')
-  FileUtils.deleteDirectory(gradleUserPath.toFile())
+  FileUtils.deleteDirectory(gradleUserPath.toString())
   ant.chmod(file: "${project.build.outputDirectory}/package/silverpeas/bin/silverpeas",
       perm: "ugo+rx")
   ant.exec(executable: "${project.build.outputDirectory}/package/silverpeas/bin/silverpeas",
