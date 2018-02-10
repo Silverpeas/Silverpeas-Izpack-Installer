@@ -1,0 +1,1 @@
+function bytesToSize(b,a){var c=[window.i18n.prop("file.size.bytes"),window.i18n.prop("file.size.Kb"),window.i18n.prop("file.size.Mb"),window.i18n.prop("file.size.Gb"),window.i18n.prop("file.size.Tb")];var d=0;if(b==0){return"n/a"}while(b>=1024){d++;b=b/1024}return b.toFixed(a)+" "+c[d]};

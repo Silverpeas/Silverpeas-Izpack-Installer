@@ -1,0 +1,3 @@
+<div class="answerContent">
+<p>Silverpeas dispose&nbsp; d&#39;une nouvelle application nomm&eacute;e &quot;Boite &agrave; id&eacute;es&quot;. Vous la trouverez dans l&#39;Espace Collaboratif.</p>
+</div>

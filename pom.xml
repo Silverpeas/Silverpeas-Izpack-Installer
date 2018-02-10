@@ -103,7 +103,7 @@
               <goal>execute</goal>
             </goals>
             <configuration>
-              <source>${basedir}/src/main/groovy/SilverpeasPreparation.groovy</source>
+              <source>${project.basedir}/src/main/groovy/SilverpeasPreparation.groovy</source>
             </configuration>
           </execution>
         </executions>

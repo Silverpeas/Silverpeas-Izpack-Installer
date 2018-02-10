@@ -2,17 +2,43 @@
 <izpack:processing version="5.0"
                    xmlns:izpack="http://izpack.org/schema/processing" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://izpack.org/schema/processing http://izpack.org/schema/5.0/izpack-processing-5.0.xsd">
-  <job name="Silverpeas Installation">
+  <job name="Installation">
     <os family="windows" />
     <executefile name="$INSTALL_PATH\bin\silverpeas.bat" workingDir="$INSTALL_PATH\bin">
         <arg>install</arg>
     </executefile>
   </job>
-  <job name="Silverpeas Installation">
+  <job name="Installation">
     <os family="unix" />
     <os family="mac" />
     <executefile name="$INSTALL_PATH/bin/silverpeas" workingDir="$INSTALL_PATH/bin">
         <arg>install</arg>
+    </executefile>
+  </job>
+  <job name="Execution">
+    <os family="windows" />
+    <executefile name="$INSTALL_PATH\bin\silverpeas.bat" workingDir="$INSTALL_PATH\bin">
+      <arg>start</arg>
+    </executefile>
+  </job>
+  <job name="Execution">
+    <os family="unix" />
+    <os family="mac" />
+    <executefile name="$INSTALL_PATH/bin/silverpeas" workingDir="$INSTALL_PATH/bin" >
+      <arg>start</arg>
+    </executefile>
+  </job>
+  <job name="Stop" catch="true">
+    <os family="windows" />
+    <executefile name="$INSTALL_PATH\bin\silverpeas.bat" workingDir="$INSTALL_PATH\bin">
+      <arg>stop</arg>
+    </executefile>
+  </job>
+  <job name="Stop" catch="true">
+    <os family="unix" />
+    <os family="mac" />
+    <executefile name="$INSTALL_PATH/bin/silverpeas" workingDir="$INSTALL_PATH/bin" >
+      <arg>stop</arg>
     </executefile>
   </job>
 </izpack:processing>

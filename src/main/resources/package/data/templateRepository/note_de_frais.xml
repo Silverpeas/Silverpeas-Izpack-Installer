@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<publicationTemplate>
+    <name>Note de Frais</name>
+    <description></description>
+    <directoryUsage>false</directoryUsage>
+    <visible>true</visible>
+    <dataEncrypted>false</dataEncrypted>
+    <applications>
+        <application>formsOnline</application>
+        <application>webPages</application>
+    </applications>
+    <viewFileName>note_de_frais/view.html</viewFileName>
+    <updateFileName>note_de_frais/update.html</updateFileName>
+    <dataFileName>note_de_frais/data.xml</dataFileName>
+    <viewTypeFile></viewTypeFile>
+    <updateTypeFile></updateTypeFile>
+    <searchResultFileName>note_de_frais/searchresult.xml</searchResultFileName>
+</publicationTemplate>

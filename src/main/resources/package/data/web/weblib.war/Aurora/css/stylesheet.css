@@ -1,0 +1,1220 @@
+/**
+* Copyright (C) 2000 - 2018 Silverpeas
+*
+* This program is free software: you can redistribute it and/or modify
+* it under the terms of the GNU Affero General Public License as
+* published by the Free Software Foundation, either version 3 of the
+* License, or (at your option) any later version.
+*
+* As a special exception to the terms and conditions of version 3.0 of
+* the GPL, you may redistribute this Program in connection with Free/Libre
+* Open Source Software ("FLOSS") applications as described in Silverpeas's
+* FLOSS exception. You should have received a copy of the text describing
+* the FLOSS exception, and it is also available here:
+* "http://repository.silverpeas.com/legal/licensing"
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+* GNU Affero General Public License for more details.
+*
+* You should have received a copy of the GNU Affero General Public License
+* along with this program. If not, see <http://www.gnu.org/licenses/>.
+*/
+
+@font-face {
+    font-family: 'texgyreadventor';
+    src: url('../font/texgyreadventor-regular-webfont.eot');
+    src: url('../font/texgyreadventor-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/texgyreadventor-regular-webfont.woff') format('woff'),
+         url('../font/texgyreadventor-regular-webfont.ttf') format('truetype'),
+         url('../font/texgyreadventor-regular-webfont.svg#texgyreadventor') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+	background:#FFFFFF fixed no-repeat;
+	font-family:"Century Gothic","Trebuchet MS",Arial, sans serif;
+	color:#082E4A;
+}
+
+html,button,body, td, div, a , input, select, textarea, #myProfileFiche .statut, .textePetitBold{
+	font-family:"Century Gothic","Trebuchet MS",Arial, sans serif;
+	font-size:9pt;
+}
+
+
+/********************************** ELMTS COLONNE GAUCHE *******************************/
+
+/* NAV GAUCHE */
+#domainsBar #spaces a,
+#domainsBar #spaceTransverse a,
+#domainsBar #spacePerso a {
+	display:block;
+}
+
+#spacePerso .contentSpace, 
+.spaceLevel1On .contentSpace{
+	margin-left:0;
+}
+
+.contentSpace .contentSpace {
+	padding:0;
+	border:0;
+}
+
+.contentSpace .contentSpace .browseSpace {
+	padding-right:0;
+}
+
+.spaceLevel1 {
+	display:none;
+}
+
+ .spaceLevel1On {
+	margin-right:0;
+	padding:0;
+	height:auto;
+	position:relative;
+	border: 0;
+}
+
+#spaces {
+	border: none;
+	position:relative;
+	height:auto;
+	background:#FFF none bottom;
+	padding:0 1px 0 0;
+	border-radius: 0 0 12px 0;
+}
+
+#spaceTransverse {
+	border: none;
+	position:relative;
+	height:auto;
+	background:#FFF none bottom;
+	padding:0 1px 35px 0;
+	border-radius: 0 0 12px 0;
+}
+
+.spaceLevel1 .browseComponent a,
+.spaceLevel1On .browseComponent a ,
+.spaceLevel1On .browseComponentActiv a{
+	padding:2px 10px 4px 36px;
+	border-bottom:0;
+}
+
+#domainsBar .spaceLevel1On .browseComponentActiv a{
+	color:#7eb73b;
+}
+
+.spaceLevel1On .browseComponentActiv img.browseIconComponent {
+	display:block;
+}
+
+.browseSpace {
+	position:relative;
+}
+
+#basSpaces ,
+#basSpaceTransverse {
+	display: none;
+}
+
+.spaceLevel1On .browseSpace .browseComponent a,
+.spaceLevel1On .browseSpace .browseComponentActiv a{
+	border:0;
+	text-transform:inherit;
+	padding:7px 10px 9px 12px;
+	border-bottom:1px solid #c6c6c6;
+	background-image:none;
+}
+.spaceLevel1On .browseSpace .browseComponent a	,
+.spaceLevel1On .spaceOn .browseComponent a{
+	background-image:none;
+	background-color:transparent;
+}
+
+.spaceLevel1On .browseSpace .browseComponent a,
+.spaceLevel1On .browseSpace .browseComponentActiv a{
+	border:0;
+	text-transform:inherit;
+	padding:7px 10px 9px 50px;
+	border-bottom:1px solid #c6c6c6;
+}
+
+.spaceLevel1On .browseSpace .browseComponent img.browseIconComponent,
+.spaceLevel1On .browseSpace .browseComponentActiv img.browseIconComponent{
+	top:4px;
+	left:26px;
+}
+
+.spaceLevel1On .browseSpace .browseSpace .browseComponent a,
+.spaceLevel1On .browseSpace .browseSpace .browseComponentActiv a{
+	border:0;
+	text-transform:inherit;
+	padding:7px 10px 9px 70px;
+	border-bottom:1px solid #c6c6c6;
+}
+
+.spaceLevel1On .browseSpace .browseSpace .browseComponent a{
+	background:transparent url();
+}
+
+.spaceLevel1On .browseSpace .browseSpace .browseComponent img.browseIconComponent,
+.spaceLevel1On .browseSpace .browseSpace .browseComponentActiv img.browseIconComponent {
+	top:4px;
+	left:46px;
+}
+
+.spaceLevel1On .browseSpace .browseSpace .browseSpace .browseComponent a,
+.spaceLevel1On .browseSpace .browseSpace .browseSpace .browseComponentActiv a{
+	border:0;
+	text-transform:inherit;
+	padding:7px 10px 9px 92px;
+	border-bottom:1px solid #c6c6c6;
+}
+
+.spaceLevel1On .browseSpace .browseSpace .browseSpace .browseComponent a {
+	background:transparent url();
+}
+
+.spaceLevel1On .browseSpace .browseSpace .browseSpace .browseComponent img.browseIconComponent,
+.spaceLevel1On .browseSpace .browseSpace .browseSpace .browseComponentActiv img.browseIconComponent{
+	top:4px;
+	left:66px;
+}
+
+.browseComponent, .browseComponentActiv {
+	position:relative;
+}
+
+.browseComponent .browseIconComponent{
+	position:absolute;
+}
+
+.browseComponent .browseIconComponent, .browseComponentActiv .browseIconComponent{
+	left: 10px;
+    top: 2px;
+}
+
+/*spacePerso*/
+.spaceLevelPerso {
+	padding:0;
+	padding:0;
+}
+
+#domainsBar #contentSpacespacePerso a {
+	line-height:16px;
+	padding-left:35px;
+}
+
+#contentSpacespacePerso .browseComponent img, .browseComponentActiv img {
+	position:absolute;
+	right:10px;
+	top:10px;	
+}
+
+#sp-layout-body-part-layout-toggle-part {
+  margin-bottom: -8px;
+  position: relative;
+}
+/********************************** ELMTS FOOTER *******************************/
+
+/********************************** ELMTS DIVERS *******************************/
+
+/* fil ariane */
+#browseBar #breadCrumb a:visited, #browseBar #breadCrumb a:active, #browseBar #breadCrumb a:link, #browseBar #breadCrumb a:hover, #browseBar #breadCrumb, #browseBar .information{
+	font-weight: normal;
+}
+
+#browseBar {
+	margin:3px 0 0;
+	padding-top:8px;
+}
+
+#browseBar #breadCrumb {
+	margin-left:3px;
+}
+
+#browseBar #i18n {
+    margin-right: 10px;
+}
+
+#TreeDiv1 {
+	background-color: #FFFFFF;
+}
+
+#blog #titresTopics , #blog #titresArchives, #blog #titresLiens {
+	background-image: none;
+	font-family:"Century Gothic","Trebuchet MS",Arial, sans serif;
+}
+
+.navigationListTitle {
+	background-color:#E1E1E1;
+	background-image:none;
+	border-radius:8px 8px 0 0;
+}
+
+.tableNavigationList {
+background-color:#D6D7D9;
+border:none;
+}
+
+.sousTitreFenetre {
+font-weight:100;}
+
+.titreFenetre {
+color:#262827;
+text-transform:uppercase;
+}
+
+.question {
+	border-radius: 5px;
+	border-color: 1px solid #FFFFFF;
+	margin:2px;
+}
+
+.listinUsers .message_list li.intfdcolor,
+#pagination,
+#navBlog , #viewPostDraft, #viewPost, #blog #blogContainer #postsList div.post,
+#classified-view #commentaires,
+#agenda #navigation, #agenda #agendaView, #agenda #footer{
+	border-radius:0;
+	border:0;
+	background-image:url();
+}
+
+.listinUsers .message_list li.intfdcolor {
+	border:1px solid #ccc;
+}
+
+#classified-view #commentaires {margin:0 auto;}
+
+ #blog #blogContainer{
+	padding-left:10px;
+}
+
+#blog #blogContainer #bandeau {
+	background:transparent url();
+}
+
+.btn-deploy-all-item.bgDegradeGris, .sousNavBulle p, #agenda #navigation, #agenda #agendaView, #agenda #footer, #richContent, #blog #blogContainer, #navBlog, #viewPostDraft, #blog #blogContainer #postsList div.post, #viewPost, #whitePagesSheet .sheet .sousNavBulle p, #publicProfileContenu .sousNavBulle p{
+	padding:8px;
+}
+
+.newsFeed , #identity table, #ReceiveInvitation{
+	margin:0;
+	border-radius:0 0 12px 12px;
+}
+
+#identity table{
+	width:100%;
+}
+ 
+.principalContent{ 
+	min-height:150px; 
+	padding:0 12px;
+}
+
+#pagination{
+	padding:3px;
+}
+ 
+#preview .tableBoard {
+	background-color:#ECECEC;
+}
+
+.arrayPane {
+	box-shadow:none;
+}
+
+#portletPages h2.portlet-title {
+	border-bottom: 0px solid #CCCCCC;
+	color:#ec8601;
+	font-family:"Century Gothic","Trebuchet MS",Arial, sans serif;
+	text-transform:normal;
+	font-variant: normal;
+	font-weight:100;
+	margin-bottom: 0px;
+	padding: 2px 0 0 ;
+}
+
+#portletPages div.portlet-content {
+	background-color:#F0F0F0;
+	border:1px dotted #BBB;
+}
+
+.portlet-content ul{
+	padding:0 10px;
+	margin:0 10px;
+	list-style-image:url(../imgDesign/puce.png);
+}
+
+#portletPages dl.sort dt {
+	line-height:20px;
+	background:#FFF url();
+	border:0;
+}
+
+#portletPages dl.sort dd{
+	background-color:#FFF;
+	margin-bottom:10px;
+}
+
+#facetSearchDivId {
+	border: none;
+}
+
+.facet div {
+	background-color:#f2f2f2;
+	padding:0 0 10px 0px;
+}
+
+.facet div:first-child {
+	background-color:transparent;
+	border-radius: 5px;
+	margin-bottom:0;
+	margin-top:10px;
+	border-left: 1px solid #cccccc;
+	border-right: 1px solid #cccccc;
+	border-bottom: 1px solid #cccccc;
+}
+
+#facetSearchDivId #searchGroupTitle span {
+  display:block;
+  font-weight: 100;
+  height: 19px;
+  line-height: 19px;
+  margin-top: 4px;
+  text-transform: uppercase;
+}
+
+#searchGroupTitle {
+	background-image: none;
+	background-color: #E1E1E1;
+	color: #222222;
+	border-radius:8px 8px 0 0;
+	border-left: 1px solid #cccccc;
+	border-right: 1px solid #cccccc;
+	border-top: 1px solid #cccccc;
+}
+
+#searchGroupValues {
+	padding-left:6px;
+}
+
+#searchGroupValues ul li.selected {
+	background-color:#FFF;
+}
+
+#searchGroupValues ul li.selected a{
+	color:#00395A;
+}
+
+.intfdcolor {
+	background-image: none;
+	background-color:#FFFFFF;
+}
+
+.ArrayNavigation {
+	background-image: none;
+}
+
+/* Boutons et onglets*/
+.ui-widget-header {
+	background-color:#353535 ;
+	border-color:#353535 ;
+	font-weight:100;
+}
+
+/* MenuToogle Yuimenu*/
+.cellOperation {
+    width: auto;
+}
+#menutoggle {
+	display:block;
+	padding:0 20px 0 30px;
+	text-align:right;
+	color: #FFF;
+	line-height: 25px;
+	border-right:0;
+}
+
+#menutoggle img{ 
+	display:none;
+}
+
+#topPage .yuimenu, #kmelia .yuimenu, #attachmentList .yuimenu{
+	padding:6px 0;
+	border-radius: 8px 0 8px 8px;
+	margin-top:-3px;
+}
+
+.yuimenu a , #portletPages .yuimenu a {
+	font-weight:100;
+}
+
+.yuimenu .yuimenuitem{
+	border-bottom:0px solid #262827 ;
+}
+
+#spaceMenuDivId {
+	margin:10px 0 0 ;
+	background-color:#FFF;
+}
+
+#preview .publiDesc {
+	font-weight:normal;
+	color:#575757;
+}
+
+.cadrePhoto {
+	background-color:#E1E1E1;
+	border-radius: 5px;
+	box-shadow:0;
+	padding:7px;
+	behavior: url("/silverpeas/util/styleSheets/PIE.htc");
+	position:relative;
+}
+
+.fondPhoto {
+	background-color:#FFF;
+	padding:0 0 18px;
+	background-position:bottom right;
+	background-repeat:no-repeat;
+}
+
+.ArrayColumn, .ArrayCell,  
+#classifieds .tableFrame #categories .categoryTitle{
+	background-image:none;
+	padding-left:8px;
+	padding-right:8px;
+}
+
+.ArrayColumn .ArrayColumn,
+.ArrayCell .ArrayCell {
+	padding-left:0;
+	padding-right:0;
+}
+
+.pageNav , .pageNav .ArrayNavigation, .pageNav .pageOff {
+background-image: none;
+}
+
+.pageNav {
+	border-radius: 5px;
+	box-shadow:0;
+	padding-top:3px;
+	padding-left:5px;
+	padding-right:5px;
+}
+
+.pageNav .pageIndex {
+	margin:0 10px 0 0;
+	padding:3px 0 0 0;
+}
+
+.bgDegradeGris {
+	border-radius:12px;
+	padding:0 0 8px 0;
+}
+
+.btn-deploy-all-item.bgDegradeGris, #displaying.bgDegradeGris {
+	font-size:100%;
+}
+
+.bgDegradeGris .bgDegradeGris {
+	border-radius:12px 12px 0 0;
+}
+
+.sousNavBulle {
+	border-radius:12px 12px 0 0;
+	margin-top:12px;
+}
+
+#backToSearch .button {
+	font-size:90%;
+}
+
+#agenda #currentScope, #agenda #jump, #agenda #today ,#agenda #categories, #agenda #invitations, #agenda #alert, #agenda #caption, #agenda #rss {
+  border:1px solid #CCC;
+  margin-top: 0;
+}
+
+#subTopics ul li a {
+	position:relative;
+}
+
+.eventBeginDate .number {
+	top:19px;
+}
+
+.portlet .title-item-rssNews a,
+.portlet .title-item-rssNews .channelName-rssNews {
+	font-size:80%;
+}
+
+#pdcFrame td{
+	font-size:11px;
+	padding:0;
+}
+
+#pdcFrame table{
+  border-spacing:0;
+  border-collapse:collapse;
+  padding:0;
+}
+
+#redExp {
+  margin-bottom: -8px;
+  position: relative;
+}
+
+.ongletAdminOn .txtPetitBlanc {
+	font-weight:bold;
+	color:#000;
+}
+
+.ongletAdminOn strong {
+	font-weight:100;
+	color:#666;
+}
+
+.ongletAdminOn strong a:hover{
+  border-bottom: 2px solid #000000;
+}
+
+#i18n .ArrayNavigationOn {
+	padding:0 3px;
+	background-color:#353535;
+	letter-spacing:1px;
+}
+
+#i18n .ArrayNavigationOn:hover {
+	background-color:#EC9C01;
+	color:#FFF;
+}
+
+.selectNS select {
+	width:150px;
+}
+
+@media only screen and (max-width: 650px), only screen and (max-device-width: 650px){
+	.rightContent {
+		clear: both;
+		float: none;
+		margin-top: 40px;
+		width: auto;
+	}
+	.rightContent .attachments {
+		min-width:auto;
+	}
+	.principalContent {
+    margin-right: 0;
+    margin-top: 10px;
+	}
+	.header h4 {
+    	min-width: auto;
+	}
+}
+a:hover {
+  color: #444443;
+}
+
+#browseBar #breadCrumb a:visited, #browseBar #breadCrumb a:active, #browseBar #breadCrumb a:link, #browseBar #breadCrumb a:hover, #browseBar #breadCrumb, #browseBar .information {
+     color: #575757;
+}
+
+.spaceLevel1On .contentSpace {
+  border-bottom: 1px solid #EEEEEE;
+  padding-bottom: 10px;
+}
+
+.spaceLevel1On .contentSpace, #contentSpacespacePerso {
+  background-color: transparent;
+}
+
+#domainsBar #spaces a:hover, #domainsBar #spaceTransverse a:hover {
+     color: #7EB73B;
+}
+
+#domainsBar .spaceLevel1 a.spaceURL, #domainsBar .spaceLevel1On a.spaceURL,
+#domainsBar #spaceMenuDivId #spacePerso .spaceURL {
+  background: url("../imgDesign/bg_menu_level1.png") no-repeat scroll 0px bottom transparent;
+  color: #555;
+  display: block;
+  font-weight: 100;
+  line-height: 19px;
+  min-height: 18px;
+  padding: 13px 10px 17px  45px;
+}
+
+#domainsBar .spaceLevel1 a.spaceURL:hover {
+  background: url("../imgDesign/bg_menu_level1Hover.png") no-repeat scroll  0px bottom  transparent;
+  color: #101010;
+}
+
+#domainsBar .spaceLevel1On a.spaceURL:hover, #domainsBar .spaceLevel1On a.spaceURL,
+#domainsBar #spaceMenuDivId #spacePerso .spaceURL  {
+  background: url("../imgDesign/bg_menu_level1On.png") no-repeat scroll  0px bottom  #FFFFFF;
+  color: #101010;
+  padding-left: 15px;
+}
+
+#domainsBar .spaceLevel1On .browseSpace > a {
+  background: url("../imgDesign/packFleche.png") no-repeat scroll 8px -2px transparent;
+  font-weight: 100;
+  padding: 4px 10px 4px 32px;
+  position: relative;
+}
+
+#domainsBar .spaceLevel1On .contentSpace .spaceOn > a {
+  background: url("../imgDesign/packFleche.png") no-repeat scroll 8px -153px transparent;
+  color: #72AA2F;
+}
+
+#domainsBar .spaceLevel1On .browseSpace .browseComponent a, #domainsBar .spaceLevel1On .browseSpace .browseComponentActiv a {
+  padding-left: 58px;
+}
+
+#domainsBar .spaceLevel1On .browseSpace .browseSpace > a {
+  background: url("../imgDesign/packFleche.png") no-repeat scroll 28px -2px transparent;
+  color: #616063;
+  padding: 4px 10px 4px 52px;
+}
+
+#domainsBar .spaceLevel1On .contentSpace .contentSpace .spaceOn > a {
+  background: url("../imgDesign/packFleche.png") no-repeat scroll 28px -153px transparent;
+  color: #7EB73B;
+}
+
+#domainsBar .spaceLevel1On .browseSpace .browseSpace .browseComponent a, #domainsBar .spaceLevel1On .browseSpace .browseSpace .browseComponentActiv a {
+  padding-left: 78px;
+}
+
+#domainsBar .spaceLevel1On .browseSpace .browseSpace .browseSpace > a {
+  background: url("../imgDesign/packFleche.png") no-repeat scroll 48px -2px transparent;
+  color: #616063;
+  padding: 4px 10px 4px 72px;
+}
+
+#domainsBar .spaceLevel1On .contentSpace .contentSpace .contentSpace .spaceOn > a {
+  background: url("../imgDesign/packFleche.png") no-repeat scroll 48px -153px transparent;
+  color: #7EB73B;
+}
+
+#domainsBar .spaceLevel1On .browseSpace .browseSpace .browseSpace .browseComponent a, #domainsBar .spaceLevel1On .browseSpace .browseSpace .browseSpace .browseComponentActiv a {
+  padding-left: 98px;
+}
+
+.spaceLevel1On .browseSpace .browseComponent a, .spaceLevel1On .browseSpace .browseComponentActiv a {
+  background: url("") repeat scroll 0% 0% transparent;
+  border: 0px none;
+  padding: 5px 10px 0px 52px;
+  text-transform: inherit;
+}
+
+.spaceLevel1On .browseSpace .browseComponent img.browseIconComponent, .spaceLevel1On .browseSpace .browseComponentActiv img.browseIconComponent {
+  left: 29px;
+  top: 4px;
+}
+
+.spaceLevel1On .browseSpace .browseSpace .browseComponent a, .spaceLevel1On .browseSpace .browseSpace .browseComponentActiv a {
+  background: url("") repeat scroll 0% 0% transparent;
+  border: 0px none;
+  padding: 5px 10px 0px 72px;
+  text-transform: inherit;
+}
+
+.spaceLevel1On .browseSpace .browseSpace .browseComponent img.browseIconComponent, .spaceLevel1On .browseSpace .browseSpace .browseComponentActiv img.browseIconComponent {
+  left: 50px;
+  top: 4px;
+}
+
+.spaceLevel1On .browseSpace .browseSpace .browseSpace .browseComponent a, .spaceLevel1On .browseSpace .browseSpace .browseSpace .browseComponentActiv a {
+  background: url("") repeat scroll 0% 0% transparent;
+  border: 0px none;
+  padding: 5px 10px 0px 92px;
+  text-transform: inherit;
+}
+
+.spaceLevel1On .browseSpace .browseSpace .browseSpace .browseComponent img.browseIconComponent, .spaceLevel1On .browseSpace .browseSpace .browseSpace .browseComponentActiv img.browseIconComponent {
+  left: 70px;
+  top: 4px;
+}
+
+#spacePerso {
+  background:transparent url();
+  border:0;
+}
+
+#domainsBar #spaceMenuDivId #spacePerso .spaceURL {
+	display:none;
+}
+
+#contentSpacespacePerso{
+  padding-bottom:15px;
+}
+
+
+#domainsBar #spacePerso .browseComponentActiv a {
+  color: #1C94D4;
+  font-weight: bold;
+}
+
+#domainsBar #spacePerso .contentSpace {
+  background-color: transparent;
+  clear: both;
+}
+
+#domainsBar #spacePerso .contentSpace .browseComponent {
+  text-align: left;
+}
+
+#domainsBar #spacePerso .contentSpace a {
+  padding-left: 10px;
+}
+
+#menutoggle {
+  background: url("../imgDesign/qvf.png") repeat scroll left top #EC9C01;
+  border: 0px none;
+  margin-top: 8px;
+}
+
+#topPage .yuimenu, #kmelia .yuimenu, #attachmentList .yuimenu {
+  background-color: #F2F2F2;
+  border: 1px solid #5D5D5E;
+}
+
+#topPage .yuimenu ul, #kmelia .yuimenu ul, #attachmentList .yuimenu ul {
+  border-color: #5D5D5E;
+}
+
+.yuimenu a, #portletPages .yuimenu a {
+  background-color: #F2F2F2;
+}
+
+.yuimenuitemlabel, .yuimenuitemlabel:visited, .yuimenubaritemlabel, .yuimenubaritemlabel:visited {
+  color: #5D5D5E;
+}
+
+.yuimenu .yuimenubaritem-selected, .yuimenu .yuimenuitem-selected {
+  background-color: #F2D5D8;
+}
+
+.yuimenu a:hover, #portletPages .yuimenu a:hover {
+  background-color: #EC9C01;
+  border-color: #EC9C01;
+  color: #FFFFFF;
+}
+
+#portletPages .list-responsible-user .action a:hover, .list-responsible-user .action a:hover {border-bottom:0}
+
+#blog #titresTopics a, #blog #titresArchives a, #blog #titresLiens a, .titreCouleur,
+.txtlibform, .textePetitBold  {
+  color: #444;
+}
+
+#myProfileFiche .action .link, #publicProfileFiche #contactCommun .link, #publicProfileFiche #allContact .link, .txtnav, .txtbigdate, .txttitrecol, #directory .link {
+     border-color: #EC8601;
+     color: #EC8601;
+     line-height: 12px;
+}
+
+
+/************ TAILLE DES POLICES CENTRALISEE ***************/
+
+.ArrayColumn, 
+#classifieds .tableFrame #categories .categoryTitle{
+	font-size:8pt;
+}
+
+.commentaires #edition-box .title, .commentaires .oneComment p.author,
+#portletPages div.portlet-content ,
+#domainsBar a,
+.sousNavBulle, .container-filter, .sousNavBulle a,
+.txtnav, .txtlibform, 
+.txtnote,
+.txtBaseline,
+caption,
+Label, legend{
+     font-size:9pt;
+}
+
+
+.ongletAdminOn span.textePetitBold, .ongletAdminOff span.txtPetitBlanc,
+.componentNav,
+#spaces-welcome-message p,
+#spaces-welcome-message ul,
+#spaces-welcome-message a ,
+.titreForum,
+.ArrayNavigation,
+.skinFieldset legend,
+#globalResultForm,
+#globalResultQueryLabel,
+#globalResultParamDisplayLabel,
+.titreFenetre ,
+#portletPages dl.sort ,
+#portletPages dl.sort dd,
+button.ui-button.ui-widget,
+button,
+.sp_button,
+.ongletAdminOn .txtPetitBlanc,
+.ongletAdminOn strong,
+.yuimenu a , #portletPages .yuimenu a,
+.spaceHome #publication li ,
+#menubar-creation-actions .menubar-creation-actions-item, #attachment-creation-actions .menubar-creation-actions-item,
+#nav ul.nav-niveau-2 li a,
+.last-publication-list li{
+     font-size:10pt !important;
+}
+
+.sousTitreFenetre, 
+#menutoggle,
+#administration a,
+.spaceHome .list-responsible-user .userName,
+.spaceHome .spaceNavigation li a,
+#browseBar #breadCrumb a:visited, #browseBar #breadCrumb a:active, #browseBar #breadCrumb a:link, #browseBar #breadCrumb a:hover, #browseBar #breadCrumb, #browseBar .information {
+	font-size: 10.5pt;
+	font-family:"texgyreadventor","Century Gothic","Trebuchet MS",Arial, sans serif;
+}
+
+#nav ul  ul > li > a,
+ #nav ul  ul > li > a span{
+	font-size: 10.5pt;
+	font-family:"texgyreadventor","Century Gothic","Trebuchet MS",Arial, sans serif;
+}
+.spaceHome #spaceQuiskInfo li.slide > h4 ,
+.spaceHome #publication li a b,
+.spaceHome #publication .header h4,
+.last-publication-list li a{
+	font-size: 11.5pt;
+	font-family:"texgyreadventor","Century Gothic","Trebuchet MS",Arial, sans serif;
+}
+
+#facetSearchDivId #searchGroupTitle span ,
+#domainsBar #spaceMenuDivId #spacePerso .spaceURL,
+#topBar #outils div.avatarName a {
+    font-size: 12pt;
+	font-family:"texgyreadventor","Century Gothic","Trebuchet MS",Arial, sans serif;
+}
+
+#portletPages h2.portlet-title,
+#shortcuts a , #shortcuts a:hover, #shortcuts a:focus, #shortcuts td.activeShortcut a,
+#nav >  ul > li > a,
+ #nav >  ul > li > a span {
+	font-size:12pt;
+	font-family:"texgyreadventor","Century Gothic","Trebuchet MS",Arial, sans serif;
+}
+
+.spaceHome .spaceName ,
+#domainsBar .spaceLevel1 a.spaceURL, #domainsBar .spaceLevel1On a.spaceURL{
+	font-size:14pt;
+	font-family:"texgyreadventor","Century Gothic","Trebuchet MS",Arial, sans serif;
+}
+
+/************ END TAILLE DES POLICES CENTRALISEE ***************/
+
+
+.ongletAdminOn span.textePetitBold, .ongletAdminOff span.txtPetitBlanc {
+	 font-weight:100;
+}
+.ArrayColumn, #classifieds .tableFrame #categories .categoryTitle, .tableArrayPane thead {
+     background-color: #D6D7D9;
+     color: #000000;
+}
+
+.ArrayColumn a {
+     color: #000000;
+}
+
+.ArrayColumn a:hover {
+  color: #444444;
+}
+
+.pageNav {
+  background-color: #FFFFFF;
+}
+
+.pageNav .pageIndex {
+  background-color: transparent;
+}
+
+.skinFieldset legend {
+  background-color: #FFFFFF ! important;
+  border-radius: 5px;
+  padding-right: 20px;
+}
+
+.rightContent #dNdActionLabel {
+     color: #333333;
+}
+
+#settings .txtlibform, #settings .textePetitBold, .pdcPosition h3, #blog #blogContainer #bandeau a, #backHomeBlog a {
+     color: #444443;
+}
+
+.eventName a {
+     color: #444443 ! important;
+}
+
+.eventMonth {
+     background-color: #FFFFFF;
+     color: #212322 ! important;
+}
+
+.eventsView #navigation {
+     background-color: transparent;
+}
+
+#menubar-creation-actions, #attachment-creation-actions {
+  background-color: #FDF4EF;
+  border-bottom: 1px solid #EDBCBB;
+  border-top: 1px solid #EDBCBB;
+}
+
+#menubar-creation-actions .menubar-creation-actions-item:hover, #attachment-creation-actions .menubar-creation-actions-item:hover {
+  background-color: #EDBCBB;
+  color: #00395A;
+}
+
+#classified_contact_link {
+  width: 166px;
+}
+
+/********************* ALMANACH PORTLET **************************/
+
+.portlet li.events {
+  clear: both;
+  border-bottom:1px solid #efefef;
+  position: relative;
+  margin: 2px 0 0;
+  min-height: 50px;
+  padding: 3px 0 3px 58px;
+  background:transparent url(/silverpeas/util/icons/gradientSVG.jsp?from=ffffff&to=efefef&vertical=0&horizontal=100) 0 23px no-repeat;
+  -moz-background-size: 100%;
+}
+
+.portlet li.events div.event {
+  margin-bottom:2px;
+}
+
+.portlet li.events div.event:last-child{
+  margin-bottom:0;
+}
+
+.portlet  div.eventShortDate {
+  position:absolute;
+  top:3px;
+  left:3px;
+  background:transparent url("../icons/bgCalendar-portlet.png") top left no-repeat;
+  height:48px;
+  width:47px;
+  color:#33529b;
+  line-height:54px;
+  font-size:14px;
+  text-align:center;
+  font-weight:bold;
+}
+
+
+.portlet .priority  div.eventShortDate {
+  background-image:url("../icons/bgCalendarHight-portlet.png");
+}
+
+.portlet  div.eventLongDate {
+  color:#304f98;
+  font-weight:bold;
+}
+
+.portlet  div.eventName  {
+  font-size:11px;
+  font-weight: 100;
+  margin-bottom:2px;
+}
+
+.portlet  div.eventName  .eventBeginHours{
+  color:#666;
+}
+
+.portlet  div.eventShortDate .number {
+  font-size:16px;
+  color:#333;
+}
+
+.portlet li.event .eventDesc, .portlet li.event  .eventURL{
+  display:none;
+  
+}
+.portlet .eventInfo div {
+  width: 90%;
+  display: inline;
+}
+.portlet .eventInfo div div.bloc {
+  padding: 2px 8px 0 38px;
+  font-size:100%;
+
+}
+
+.portlet .eventList  {
+  list-style-type:none;
+  list-style-image:none;
+  padding:0;
+  margin:0;
+  background-color:transparent
+}
+.portlet .eventList .eventInfo {
+  padding:1px 0;
+}
+
+.portlet .eventPlace .bloc {
+  background-position:6px center;
+}
+
+
+.portlet .eventPlace .bloc{
+  background:transparent url('/silverpeas/util/icons/marker.gif') 17px center   no-repeat;
+}
+
+
+/************* PAGE d'ACCUEIL D'ESPACE ****************/
+.spaceHome h1.spaceName,
+.spaceHome #portletPages #spaceEvent h2.portlet-title {
+	padding-top:0;
+	margin-top:0;
+}
+
+.spaceHome .spaceDescription {
+  border-left: 6px solid #E4E4E4;
+  color: #666666;
+  padding: 8px;
+}
+
+
+.spaceHome .spaceNavigation li.browse-space a {
+  background: url("../imgDesign/bg_menu_level1.png") no-repeat scroll 0px -10px transparent;
+  padding-left: 38px;
+}
+
+.spaceHome .spaceNavigation li p {
+  padding-left: 38px;
+}
+
+.spaceHome .spaceNavigation li.browse-component p {
+  padding-left: 0;
+}
+.spaceHome #spaceManager h2.portlet-title {
+  color: #7EB73B;
+}
+
+.spaceHome #spaceManager ul {
+  list-style: none outside none;
+  padding: 0px;
+}
+
+.spaceHome #spaceManager .intfdcolor {
+  background-color: transparent;
+}
+
+.spaceHome .rightContent {
+	margin-top:8px;
+}
+
+.spaceHome  #portletPages div:first-child  .header  h2 {
+	margin-top:0;
+}
+
+.portlet #calendar li.events {
+	background: none repeat scroll 0% 0% transparent;
+	border-bottom: 0;
+	margin:0;
+}
+
+.portlet #calendar .eventInfo {
+  background-color: #FFFFFF;
+}
+
+.spaceHome #spaceEvent h2.portlet-title, .spaceHome #spaceQuiskInfo h2.portlet-title {
+  color: #777777;
+}
+
+.spaceHome #publication .bgDegradeGris, .spaceHome #publication.bgDegradeGris {
+  background: none repeat scroll 0% 0% transparent;
+  border: 0px none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.spaceHome #publication.bgDegradeGris {
+  border-radius: 0px;
+  border-top: 2px dotted #E4E4E4;
+  margin-top: 2em;
+  padding-top: 1em;
+}
+
+.spaceHome #publication .header h4 {
+  color: #777777;
+  font-weight: 100;
+  margin: 0px;
+  padding: 0px;
+}
+
+.header h4 {
+    font-size: 100%;
+}
+
+.spaceHome #publication li,
+.last-publication-list li {
+  list-style-image: url("../imgDesign/puce.png");
+}
+.spaceHome #publication li a:hover,
+.last-publication-list li  a:hover{
+  background-color:#F0F0F0;
+}
+
+.spaceHome #publication li a b,
+.last-publication-list li a b {
+  color: #333333;
+  font-weight: 100;
+}
+
+.spaceHome #publication li a:hover b,
+.last-publication-list li a:hover b {
+color:#1C94D4;
+}
+
+.last-publication-list .description-publication {
+	margin:0 0 1em 0;
+}
+
+.spaceHome #publication li .userToZoom ,
+.last-publication-list li .userToZoom {
+  color: #1C94D4;
+}
+
+.spaceHome #spaceQuiskInfo li.slide {
+  min-height: 135px;
+}
+
+.spaceHome #spaceQuiskInfo li.slide > h4 {
+  color: #EC7501;
+  font-weight: 100;
+  line-height: 120%;
+}
+
+.spaceHome #spaceQuiskInfo li.slide p {
+  line-height: 110%;
+}
+
+.spaceHome #spaceQuiskInfo .slides-pagination a:hover, .spaceHome #spaceQuiskInfo .slides-pagination .selected a {
+  background-color: #EC7501;
+}
+
+.spaceHome .list-responsible-user li {
+  width: auto;
+}
+
+.btn-deploy-all-item, #dynamicalLoad, #displaying, #displaying a {width:auto}
+#displaying {width:228px;}

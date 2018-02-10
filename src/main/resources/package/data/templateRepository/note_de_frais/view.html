@@ -1,0 +1,62 @@
+
+<div class="forms" style="background-color:#fefefe">
+  <ul class="fields ui-sortable">
+    <li class="field" >
+      <label class="txtlibform" ><%=event%></label><div class="fieldInput">Le <%=dateEvent%></div>
+    </li>
+    <li class="field" >
+      <label class="txtlibform"> <%=lieu.label%></label><div class="fieldInput"><%=lieu%></div>
+    </li>
+  </ul>
+
+<ul class="fields ui-sortable"  id="frais1" >
+    <li class="field" >
+      <label class="txtlibform" ><%=typeFrais1%></label><div class="fieldInput"><span class=" montant1"><%=montant1%></span>€ <%=justificatif1%></div>
+    </li>
+  </ul>
+
+<ul class="fields ui-sortable"  id="frais2">
+    <li class="field" >
+      <label class="txtlibform" ><%=typeFrais2%></label><div class="fieldInput"><span class=" montant2"><%=montant2%></span>€ <%=justificatif2%></div>
+    </li>
+  </ul>
+  
+<ul class="fields ui-sortable"  id="frais3" >
+    <li class="field" >
+      <label class="txtlibform" ><%=typeFrais3%></label><div class="fieldInput"><span class=" montant3"><%=montant3%></span>€ <%=justificatif3%></div>
+    </li>
+  </ul>
+  
+  <ul class="fields ui-sortable"  id="frais4" >
+    <li class="field" >
+      <label class="txtlibform" ><%=typeFrais4%></label><div class="fieldInput"><span class=" montant4"><%=montant4%></span>€ <%=justificatif4%></div>
+    </li>
+  </ul>
+  <ul class="fields ui-sortable"  >
+    <li class="field"  style="background-color:#f6d7db;" >
+      <label class="txtlibform" style="text-transform:uppercase;font-size:120%;"> <%=total.label%></label><div class="fieldInput"><b><%=total%>&euro;</b> </div>
+    </li>
+   </ul>
+</div>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+	if ($.trim($(".montant1").text()).length==0) {
+			 $("#frais1").css('display','none');
+	} 
+	if ($.trim($(".montant2").text()).length==0) {
+			 $("#frais2").css('display','none');
+	} 
+	if ($.trim($(".montant3").text()).length==0) {
+			 $("#frais3").css('display','none');
+	} 
+	if ($.trim($(".montant4").text()).length==0) {
+			 $("#frais4").css('display','none');
+	} 
+
+	
+
+ });
+</script>

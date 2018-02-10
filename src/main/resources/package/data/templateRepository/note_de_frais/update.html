@@ -1,0 +1,92 @@
+
+<div class="forms" style="background-color:#fefefe">
+  <ul class="fields ui-sortable">
+    <li class="field" >
+      <label class="txtlibform" ><%=dateEvent.label%></label><div class="fieldInput"><%=dateEvent%></div>
+    </li>
+    <li class="field" >
+      <label class="txtlibform" ><%=event.label%></label><div class="fieldInput"><%=event%></div>
+    </li>
+    <li class="field" >
+      <label class="txtlibform"> <%=lieu.label%></label><div class="fieldInput"><%=lieu%></div>
+    </li>
+  </ul>
+
+<ul class="fields ui-sortable"  id="frais1" style="width:450px;margin:2em 0 0 2em ;border:1px solid #DDD;float:left;">
+    <li class="field" >
+      <label class="txtlibform" ><%=typeFrais1.label%></label><div class="fieldInput"><%=typeFrais1%></div>
+    </li>
+    <li class="field" >
+      <label class="txtlibform" ><%=montant1.label%></label><div class="fieldInput price"><%=montant1%></div>
+    </li>
+    <li class="field" >
+      <label class="txtlibform"> <%=justificatif1.label%></label><div class="fieldInput"><%=justificatif1%></div>
+    </li>
+  </ul>
+
+<ul class="fields ui-sortable"  id="frais2" style="width:450px;margin:2em 0 0 2em;border:1px solid #DDD;float:left;">
+    <li class="field" >
+      <label class="txtlibform" ><%=typeFrais2.label%></label><div class="fieldInput"><%=typeFrais2%></div>
+    </li>
+    <li class="field" >
+      <label class="txtlibform" ><%=montant2.label%></label><div class="fieldInput price"><%=montant2%></div>
+    </li>
+    <li class="field" >
+      <label class="txtlibform"> <%=justificatif2.label%></label><div class="fieldInput"><%=justificatif2%></div>
+    </li>
+  </ul>
+  
+<ul class="fields ui-sortable"  id="frais3" style="width:450px;margin:2em 0 0 2em;border:1px solid #DDD;float:left;">
+    <li class="field" >
+      <label class="txtlibform" ><%=typeFrais3.label%></label><div class="fieldInput"><%=typeFrais3%></div>
+    </li>
+    <li class="field" >
+      <label class="txtlibform" ><%=montant3.label%></label><div class="fieldInput price"><%=montant3%></div>
+    </li>
+    <li class="field" >
+      <label class="txtlibform"> <%=justificatif3.label%></label><div class="fieldInput"><%=justificatif3%></div>
+    </li>
+  </ul>
+  
+  <ul class="fields ui-sortable"  id="frais4" style="width:450px;margin:2em 0 0 2em;border:1px solid #DDD;float:left;">
+    <li class="field" >
+      <label class="txtlibform" ><%=typeFrais4.label%></label><div class="fieldInput"><%=typeFrais4%></div>
+    </li>
+    <li class="field" >
+      <label class="txtlibform" ><%=montant4.label%></label><div class="fieldInput price"><%=montant4%></div>
+    </li>
+    <li class="field" >
+      <label class="txtlibform"> <%=justificatif4.label%></label><div class="fieldInput"><%=justificatif4%></div>
+    </li>
+  </ul>
+
+<br clear="left"/>
+<div style="background-color:#f6d7db; padding:1em; clear:both; margin-top:2em;" ><b><%=total.label%> : <span id="leTotal">0</span> &euro;</b><input size="10" id="total" value="" name="total" maxlength="1000" type="hidden"></div>
+
+</div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+    var sum = 0;
+    
+  $('.price').each(function() {
+        sum += Number($(this).find("input").val());
+    });
+    
+    
+    
+  $('#leTotal').html(sum);
+	$('#total').val(sum);
+
+   $('.price').find("input").blur(function () {
+    var sum = 0;
+    $('.price').each(function() {
+        sum += Number($(this).find("input").val());
+    });
+
+    $('#leTotal').html(sum);
+	$('#total').val(sum);
+});
+});
+</script>

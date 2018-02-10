@@ -1,0 +1,351 @@
+/*
+ * Copyright (C) 2000 - 2018 Silverpeas
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * As a special exception to the terms and conditions of version 3.0 of
+ * the GPL, you may redistribute this Program in connection with Free/Libre
+ * Open Source Software ("FLOSS") applications as described in Silverpeas's
+ * FLOSS exception.  You should have recieved a copy of the text describing
+ * the FLOSS exception, and it is also available here:
+ * "http://www.silverpeas.org/docs/core/legal/floss_exception.html"
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+@charset "utf-8";
+/* CSS Document */
+
+* {
+  margin: 0px;
+  padding: 0px;
+  /*overflow:hidden;*/
+  border: none;
+  text-align: center;
+}
+
+body {
+  background-color: #3e3e3e;
+  font-size: 12px;
+  font-family: Arial, Helvetica, sans-serif;
+  /*overflow:hidden;*/
+  color: #666666;
+}
+
+#top {
+  background-color: #5399d4;
+  height: 35px;
+  margin-bottom: 40px;
+  color: #FFFFFF;
+  line-height: 35px;
+}
+
+#top a {
+  color: #FFFFFF;
+}
+
+.clear {
+  clear: both;
+}
+
+.page,
+#login-socialnetwork {
+  margin: 0px auto;
+  width: 960px;
+  position: relative;
+  z-index: 1;
+}
+
+.page {
+  padding-top: 31px;
+  margin-top: 84px;
+}
+
+#login-socialnetwork {
+  text-align: left;
+  padding-left: 351px;
+  z-index: 3;
+  margin-bottom: -120px;
+  padding-bottom: 27px;
+  background: transparent url("util/icons/external/deco-login-btn.png") 350px bottom no-repeat;
+}
+
+#login-socialnetwork a {
+  display: block;
+  clear: left;
+  width: 164px;
+  padding-left: 30px;
+}
+
+#background {
+  background: url(../imgDesign/fd-login.png) top center no-repeat;
+  min-height: 424px;
+}
+
+#background .submit {
+  color: #666666;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+#background div.submit {
+  position: absolute;
+  top: 310px;
+  width: 448px;
+  text-align: center;
+  padding: 5px
+}
+
+#backgroundBig {
+  background: url(../imgDesign/fd-login.png)  top center no-repeat;
+  min-height: 524px;
+}
+
+#backgroundBig .submit {
+  color: #666666;
+  text-decoration: none;
+  font-weight: bold;
+  position: static;
+}
+
+#backgroundBig div.submit {
+  position: absolute;
+  top: 410px;
+  width: 448px;
+  text-align: center;
+  padding: 5px
+}
+
+.cadre {
+  /*height:285px;*/
+  margin: 0 auto;
+  padding-top: 30px;
+  width: 460px;
+}
+
+input {
+  background-color: #FAFAFA;
+  border: 1px solid #DAD9D9;
+  display: block;
+  padding: 5px;
+  width: 448px;
+  text-align: left;
+}
+
+select {
+  background-color: #fafafa;
+  border: 1px solid #dad9d9;
+  padding: 5px;
+  width: 250px;
+  text-align: left;
+  float: left;
+}
+
+select option {
+  text-align: left;
+}
+
+.titre {
+	color: #FFFFFF;
+    display: inline;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 48px;
+    position: absolute;
+    right: 242px;
+    text-align: left;
+    top: -30px;
+}
+
+#header {
+  margin-bottom: 18px;
+}
+
+.logo {
+    float: left;
+    left: 118px;
+    position: absolute;
+    top: -78px;
+}
+
+.information {
+  float: right;
+  margin-top: 30px;
+  font-size: 14px;
+  text-align: left;
+}
+
+.information span {
+  color: red;
+}
+
+p label {
+  display: block;
+  margin-bottom: 10px;
+  /*padding-bottom:5px;*/
+}
+
+p label span {
+  display: block;
+  padding: 4px 0px 2px 0px;
+  font-size: 11px;
+  font-weight: bold;
+  color: #333333;
+  text-align: left;
+}
+
+#formLogin .submit {
+  position: relative;
+  text-align: left;
+  top: -10px;
+}
+
+#formLogin .submitWithOneDomain {
+  position: relative;
+  text-align: left;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+.caractere {
+  height: 44px;
+}
+
+.noDisplay {
+  display: none;
+}
+
+.forgottenPwd a {
+  font-size: 10px;
+  color: #999999;
+  font-weight: normal;
+}
+
+.rememberPwd {
+  font-size: 10px;
+  color: #999999;
+  font-weight: normal;
+}
+
+.changePwd {
+  font-size: 10px;
+  color: #999999;
+  font-weight: normal;
+}
+
+.passwordRules {
+  font-size: 10px;
+  color: #999999;
+  font-weight: normal;
+}
+
+.passwordRules a {
+  font-size: 10px;
+  color: #999999;
+  font-weight: normal;
+}
+
+#storePassword {
+  background-color: transparent;
+  border: 0px;
+  display: inline;
+  padding-bottom: 0px;
+  width: 15px;
+  text-align: left;
+  vertical-align: middle;
+  margin-left: 5px;
+}
+
+.questionSelection {
+  float: right;
+  margin-top: 10px;
+  font-size: 14px;
+  text-align: left;
+  width: 300px;
+}
+
+#question {
+  width: 400px;
+}
+
+.fnfinformation {
+  float: right;
+  margin-top: 30px;
+  font-size: 14px;
+  text-align: left;
+}
+
+.fnfinformation ul li {
+  padding-left: 5px;
+  margin-left: 25px;
+  text-align: left;
+}
+
+a.submit, a.submitWithOneDomain{
+  background: transparent url(../imgDesign/bt-left.png) 0 0 no-repeat;
+  display: inline-block;
+  padding-left: 30px;
+  line-height: 31px;
+  text-decoration: none;
+}
+
+a.submit.validate, a.submitWithOneDomain.validate{
+  background: transparent url(../imgDesign/bt-left-validate.png) 0 0 no-repeat;
+}
+
+a.submit.refused, a.submitWithOneDomain.refused{
+  background: transparent url(../imgDesign/bt-left-refused.png) 0 0 no-repeat;
+}
+
+a.submit span, a.submitWithOneDomain span {
+  background: transparent url(../imgDesign/bt-right.png) right 0 no-repeat;
+  display: block;
+  padding-right: 10px;
+}
+
+a.submit span span, a.submitWithOneDomain span span {
+  background: transparent url(../imgDesign/bt-bg.png) 0 0 repeat-x;
+  display: block;
+  color: #666666;
+  font-size: 12px;
+  text-decoration: none !important;
+}
+
+#copyright {
+	color:#FFF;
+}
+
+#copyright 	a{
+	color:#FFF;
+}
+#content-terms-of-service {
+  clear: both;
+  float: none;
+  height: 271px;
+  overflow: auto;
+  text-align: left;
+  padding-top: 1em;
+}
+
+#content-terms-of-service * {
+  text-align: left;
+}
+
+#splash #top {
+  background-color: #f48250;
+  }
+
+#splash a.submit,
+#splash #no-more{
+		display:inline-block;
+		width:auto;
+		margin:10px 10px 10px 0;
+}

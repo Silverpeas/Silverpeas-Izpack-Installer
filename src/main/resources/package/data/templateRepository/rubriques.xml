@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<publicationTemplate>
+    <name>Rubriques</name>
+    <description></description>
+    <visible>true</visible>
+    <dataEncrypted>false</dataEncrypted>
+    <applications>
+        <application>webPages</application>
+    </applications>
+    <viewFileName>rubriques\view.xml</viewFileName>
+    <updateFileName>rubriques\update.xml</updateFileName>
+    <dataFileName>rubriques\data.xml</dataFileName>
+    <viewTypeFile></viewTypeFile>
+    <updateTypeFile></updateTypeFile>
+</publicationTemplate>

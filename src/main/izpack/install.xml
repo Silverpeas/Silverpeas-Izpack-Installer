@@ -96,8 +96,11 @@
       <description>Prepare $APP_NAME $APP_VER</description>
       <fileset dir="package/bin" targetdir="$INSTALL_PATH/bin" override="true"/>
       <fileset dir="package/configuration" targetdir="$INSTALL_PATH/configuration" override="true"/>
+      <fileset dir="package/data" targetdir="$INSTALL_PATH/data" override="false"/>
+      <fileset dir="package/h2" targetdir="$INSTALL_PATH/h2" override="false"/>
       <parsable targetfile="$INSTALL_PATH/bin/silverpeas.bat" type="plain" encoding="UTF-8"  />
       <parsable targetfile="$INSTALL_PATH/bin/silverpeas" type="plain" encoding="UTF-8" />
+      <parsable targetfile="$INSTALL_PATH/bin/silverpeas.gradle" type="plain" encoding="UTF-8" />
       <parsable targetfile="$INSTALL_PATH/configuration/config.properties" type="plain" encoding="UTF-8" />
       <executable targetfile="$INSTALL_PATH/bin/silverpeas" stage="never"/>
       <executable targetfile="$INSTALL_PATH/wildfly/bin/standalone.sh" stage="never"/>

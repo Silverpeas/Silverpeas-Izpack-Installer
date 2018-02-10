@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<silverpeas-settings product="Custom">
+
+  <fileset root="${SILVERPEAS_HOME}/properties/org/silverpeas">
+
+    <configfile name="calendar/settings/calendar.properties">
+      <parameter key="calendar.import.ics.file.replace.before.process">
+        <![CDATA[CREATED:0000/CREATED:1970]]></parameter>
+    </configfile>
+
+    <configfile name="general.properties">
+      <parameter key="web.request.domain.allowed">*</parameter>
+    </configfile>
+
+    <configfile name="util/uploads/uploadSettings.properties">
+      <parameter key="MaximumFileSize">1610612736</parameter>
+    </configfile>
+
+    <configfile name="authentication/settings/authenticationSettings.properties">
+      <parameter key="newRegistrationEnabled">true</parameter>
+      <parameter key="changePwdFromLoginPageActive">true</parameter>
+    </configfile>
+
+    <configfile name="password/settings/password.properties">
+      <parameter key="password.rule.minLength">4</parameter>
+      <parameter key="password.rule.blankForbidden">false</parameter>
+      <!--
+      <parameter key="password.rule.sequentialForbidden">false</parameter>
+      <parameter key="password.rule.atLeastXUppercase">false</parameter>
+      <parameter key="password.rule.atLeastXUppercase.X">3</parameter>
+      <parameter key="password.rule.atLeastXUppercase.combined">false</parameter>
+      <parameter key="password.rule.atLeastXLowercase">false</parameter>
+      <parameter key="password.rule.atLeastXLowercase.X">2</parameter>
+      <parameter key="password.rule.atLeastXLowercase.combined">false</parameter>
+      <parameter key="password.rule.atLeastXDigit">false</parameter>
+      <parameter key="password.rule.atLeastXDigit.X">1</parameter>
+      <parameter key="password.rule.atLeastXDigit.combined">false</parameter>
+      <parameter key="password.rule.atLeastXSpecialChar">false</parameter>
+      <parameter key="password.rule.atLeastXSpecialChar.X">2</parameter>
+      <parameter key="password.rule.atLeastXSpecialChar.combined">false</parameter>
+      <parameter key="password.combination.nbMatchingRules">3</parameter>
+      -->
+    </configfile>
+
+    <configfile name="jobDomainPeas/settings/jobDomainPeasSettings.properties">
+      <parameter key="quota.domain.users.activated">false</parameter>
+    </configfile>
+
+    <configfile name="jobStartPagePeas/settings/jobStartPagePeasSettings.properties">
+      <parameter key="quota.space.components.activated">false</parameter>
+    </configfile>
+
+    <configfile name="kmelia/settings/kmeliaSettings.properties">
+      <parameter key="kmelia.export.formats.active">zip pdf odt doc</parameter>
+    </configfile>
+
+    <configfile name="util/attachment/Attachment.properties">
+      <parameter key="attachment.data.fromMetadata">true</parameter>
+    </configfile>
+
+  </fileset>
+
+</silverpeas-settings>
