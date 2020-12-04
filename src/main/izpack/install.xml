@@ -46,7 +46,7 @@
     <variable name="JDKPathPanel.skipIfValid" value="no"/>
     <variable name="TargetPanel.dir.unix" value="~/Silverpeas"/>
     <variable name="TargetPanel.dir.windows" value="C:\Silverpeas"/>
-    <variable name="SILVERPEAS_DIR" value="package/silverpeas"/>
+    <variable name="SILVERPEAS_DIR" value="package"/>
   </variables>
 
   <locale>
@@ -89,15 +89,20 @@
   <packs>
     <pack name="Silverpeas" required="yes">
       <description>Install $APP_NAME $APP_VER</description>
-      <fileset dir="$SILVERPEAS_DIR" targetdir="$INSTALL_PATH"/>
-      <fileset dir="package/gradle" targetdir="$USER_HOME/.gradle" override="true"/>
+      <fileset dir="$SILVERPEAS_DIR" targetdir="$INSTALL_PATH" override="false">
+        <exclude name="bin/silverpeas*" />
+        <exclude name="configuration/**"/>
+        <exclude name="gradle/**"/>
+        <exclude name="**/.gitkeep"/>
+      </fileset>
+      <fileset dir="$SILVERPEAS_DIR/gradle" targetdir="$USER_HOME/.gradle" override="false"/>
     </pack>
     <pack name="Silverpeas Configuration" required="yes" >
       <description>Prepare $APP_NAME $APP_VER</description>
-      <fileset dir="package/bin" targetdir="$INSTALL_PATH/bin" override="true"/>
-      <fileset dir="package/configuration" targetdir="$INSTALL_PATH/configuration" override="true"/>
-      <fileset dir="package/data" targetdir="$INSTALL_PATH/data" override="false"/>
-      <fileset dir="package/h2" targetdir="$INSTALL_PATH/h2" override="false"/>
+      <fileset dir="$SILVERPEAS_DIR/bin" targetdir="$INSTALL_PATH/bin" override="true">
+        <include name="silverpeas*"/>
+      </fileset>
+      <fileset dir="$SILVERPEAS_DIR/configuration" targetdir="$INSTALL_PATH/configuration" override="true"/>
       <parsable targetfile="$INSTALL_PATH/bin/silverpeas.bat" type="plain" encoding="UTF-8"  />
       <parsable targetfile="$INSTALL_PATH/bin/silverpeas" type="plain" encoding="UTF-8" />
       <parsable targetfile="$INSTALL_PATH/bin/silverpeas.gradle" type="plain" encoding="UTF-8" />

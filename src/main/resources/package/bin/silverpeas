@@ -19,7 +19,7 @@ APP_BASE_NAME="Silverpeas"
 export SILVERPEAS_HOME=${INSTALL_PATH}
 export JBOSS_HOME=${INSTALL_PATH}/wildfly
 export JAVA_HOME=${jdkPath}
-H2_JAR=${JBOSS_HOME}/modules/system/layers/base/com/h2database/h2/main/h2-1.3.173.jar
+H2_JAR=`ls ${JBOSS_HOME}/modules/system/layers/base/com/h2database/h2/main/h2-*.jar`
 
 # Use the maximum available, or set MAX_FD != -1 to use that value.
 MAX_FD="maximum"
