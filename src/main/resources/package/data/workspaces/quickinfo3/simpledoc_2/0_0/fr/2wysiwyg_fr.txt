@@ -1,5 +1,0 @@
-<p>Silverpeas croit en l&rsquo;efficacit&eacute; du<strong> travail collaboratif</strong>.<br />
-Le partage de la connaissance, l&rsquo;&eacute;change simple et rapide, offrent une synergie ad&eacute;quate au travail d&rsquo;&eacute;quipe.<br />
-Nous voulons promouvoir et faciliter cette fa&ccedil;on de travailler et de penser.<br />
-C&rsquo;est pourquoi nous avons cr&eacute;&eacute; une plateforme collaborative riche, intuitive et pr&ecirc;te &agrave; l&rsquo;emploi.<br />
-Organisez vos <a href="http://www.silverpeas.com/fr/56/presentation/"><span style="color: rgb(126, 183, 59);">espaces de travail collaboratif</span></a>, piochez dans notre catalogue parmi les <a href="http://www.silverpeas.com/fr/57/les-applications/"><span style="color: rgb(126, 183, 59);">30 applications professionnelles pr&ecirc;tes &agrave; l&#39;emploi</span></a><span style="color: rgb(245, 146, 55);"> </span>et d&eacute;ployez-les suivant vos besoins pour cr&eacute;er votre <strong>intranet</strong>, votre <strong>extranet </strong>ou votre <strong>plateforme collaborative</strong>.</p>

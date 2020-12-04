@@ -59,6 +59,11 @@
       <parameter key="attachment.data.fromMetadata">true</parameter>
     </configfile>
 
+    <!-- H2 doesn't support the COUNT() OVER() windowing function -->
+    <configfile name="general.properties">
+      <parameter key="jdbc.pagination.method.countOver">false</parameter>
+    </configfile>
+
   </fileset>
 
 </silverpeas-settings>
