@@ -18,7 +18,7 @@ set DEFAULT_JVM_OPTS=
 set SILVERPEAS_HOME=${INSTALL_PATH}
 set JBOSS_HOME=${INSTALL_PATH}\wildfly
 set JAVA_HOME=${jdkPath}
-set H2_JAR=%JBOSS_HOME%\modules\system\layers\base\com\h2database\h2\main\h2-1.3.173.jar
+set H2_JAR=%JBOSS_HOME%\modules\system\layers\base\com\h2database\h2\main\'$H2_LIB'
 set APP_HOME=${INSTALL_PATH}\bin
 set APP_BASE_NAME=Silverpeas
 
