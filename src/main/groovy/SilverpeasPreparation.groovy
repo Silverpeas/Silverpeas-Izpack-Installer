@@ -95,6 +95,3 @@ String h2lib = Files.list(h2libPath).find {it.toFile().name.startsWith('h2')}.to
 ant.replaceregexp(file: "${project.build.outputDirectory}/package/bin/silverpeas.bat",
     match: '\'\\$H2_LIB\'',
     replace: h2lib)
-
-ant.move(file: "${project.build.outputDirectory}/package/migrations/db/h2/busCore/up040/alter-table.sql",
-  tofile: "${project.build.outputDirectory}/package/migrations/db/h2/busCore/up040/alter_table.sql")
