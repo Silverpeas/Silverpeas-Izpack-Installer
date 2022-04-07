@@ -35,7 +35,7 @@
 
   <groupId>org.silverpeas</groupId>
   <artifactId>izpack-installer</artifactId>
-  <version>6.2.2</version>
+  <version>6.2.3</version>
   <name>Silverpeas Izpack Installer</name>
   <packaging>jar</packaging>
 
