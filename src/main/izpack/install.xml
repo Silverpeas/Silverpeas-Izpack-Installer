@@ -10,7 +10,7 @@
   <info>
     <appname>Silverpeas</appname>
     <appversion>@{silverpeas.version}</appversion>
-    <url>http://www.silverpeas.org/</url>
+    <url>https://www.silverpeas.org/</url>
     <authors>
       <author name="Silverpeas" email="devteam@silverpeas.org"/>
     </authors>

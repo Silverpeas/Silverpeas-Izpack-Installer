@@ -189,7 +189,7 @@ for arg in "$@" ; do
     stop)
       stopAfter=1
       ;;
-    migration|install)
+    migrate|install)
       echo "Start H2 database for DB migration...."
       stopAfter=1
       exec "$JAVACMD" -classpath "$H2_JAR" org.h2.tools.Server -tcp -baseDir "$SILVERPEAS_HOME/h2" &

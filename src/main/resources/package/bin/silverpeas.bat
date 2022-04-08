@@ -82,7 +82,7 @@ for %%O in (%CMD_LINE_ARGS%) do (
     start /b "" "%JAVA_EXE%" -classpath "%H2_JAR%" org.h2.tools.Server -tcp -baseDir "%SILVERPEAS_HOME%\h2"
   ) else if "%%O" == "stop" (
     set stopAfter=1
-  ) else if "%%O" == "migration" (
+  ) else if "%%O" == "migrate" (
     echo Start H2 database for DB migration....
     start /b "" "%JAVA_EXE%" -classpath "%H2_JAR%" org.h2.tools.Server -tcp -baseDir "%SILVERPEAS_HOME%\h2"
     set stopAfter=1
